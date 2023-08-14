@@ -1,45 +1,60 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Contact;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class User extends Authenticatable
+class User extends Model
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'name',
+    protected $table = 'users';
+    protected $primaryKey ='userID';
+    protected $fillable =
+     [
+        'userID',
+        'firstName',
+        'lastName',
         'email',
-        'password',
+        'gender',
+        'birth',
+        'password' ,
+        'status',
+        'civility_code',
+        'personal_email',
+        'notificationDisable',
+        'address',
+        'zip',
+        'state_id',
+        'office_phone' ,
+        'office_fax',
+        'user_mobile',
+        'personal_mobile',
+        'login',
+        'datec',
+        'datem',
+        'town',
+        'socid',
+        'user' ,
+        'country_id',
+        'country_code',
+        'type',
+        'fk_user',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
 
     /**
-     * The attributes that should be cast.
+     * Get all of the contact for the User
      *
-     * @var array<string, string>
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
-    ];
+    public function contact(): HasMany
+    {
+        return $this->hasMany(Contact::class, 'userID');
+    }
+
+
 }
