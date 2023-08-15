@@ -11,16 +11,16 @@ class Controller extends BaseController
     use AuthorizesRequests, ValidatesRequests;
 
 
-    public function sendRespons ( $result , $messages  )
+    public function sendRespons ( $result , $messages, $code = 200)
     {
     $respons =
     [
-        'success' => true ,
+        'statusCode' => $code ,
         'data' =>  $result ,
         'message' => $messages,
     ];
 
-    return response()->json($respons , 200);
+    return response()->json($respons , $code);
     }
 
 
@@ -29,28 +29,11 @@ class Controller extends BaseController
 
         $respons =
         [
-            'success' => false ,
-            'errors'  => $error ,
+            'statusCode' => $code ,
+            'data'  => $error ,
+            'message' => $errorMessages,
         ];
 
-        return response()->json($respons , $code);
-    }
-
-
-    public function sendErrors (  $errorMessages = [] , $code = 404)
-    {
-        $respons =
-        [
-            'success' => false ,
-            'errors'  => 'Error!' ,
-        ];
-
-        if(!empty($errorMessages)) // empty
-        {
-            $respons['errors'] = $errorMessages;
-            return $respons;
-        }
-
-        return response()->json($respons , $code);
+        return response()->json($respons,$code);
     }
 }
