@@ -3,13 +3,15 @@
 namespace App\Models;
 
 use App\Models\Contact;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Laravel\Passport\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class User extends Model
+class User extends Authenticatable
 {
-    use HasFactory;
+    use HasApiTokens, HasFactory, Notifiable;
 
     protected $table = 'users';
     protected $primaryKey ='userID';
@@ -18,6 +20,7 @@ class User extends Model
         'userID',
         'firstName',
         'lastName',
+        'token',
         'email',
         'gender',
         'birth',
@@ -28,8 +31,10 @@ class User extends Model
         'notificationDisable',
         'address',
         'zip',
+        'groupId',
         'state_id',
         'office_phone' ,
+        'phone',
         'office_fax',
         'user_mobile',
         'personal_mobile',
@@ -43,15 +48,23 @@ class User extends Model
         'country_code',
         'type',
         'fk_user',
+
+        "entity",
+        "reset"
     ];
 
+
+    protected $hidden = [
+        'password',
+
+    ];
 
     /**
      * Get all of the contact for the User
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function contact(): HasMany
+    public function contact()
     {
         return $this->hasMany(Contact::class, 'userID');
     }

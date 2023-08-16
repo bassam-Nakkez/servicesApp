@@ -4,7 +4,7 @@ namespace App\Http\Requests\user;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Login extends FormRequest
+class Register extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +22,7 @@ class Login extends FormRequest
     public function rules(): array
     {
         return [
-
+            //
         ];
     }
-
 }

@@ -29,7 +29,7 @@ class Contact extends Model
      */
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'userID');
+        return $this->belongsTo(User::class, 'userID','userID');
     }
 
     /**
@@ -39,7 +39,7 @@ class Contact extends Model
      */
     public function arrayOption()
     {
-        return $this->hasOne(ArrayOptions::class);
+        return $this->hasOne(ArrayOptions::class,'contactID');
     }
 
     /**
@@ -49,7 +49,7 @@ class Contact extends Model
      */
     public function order()
     {
-        return $this->hasOne(Order::class);
+        return $this->hasOne(Order::class,'contactID');
     }
 
 }

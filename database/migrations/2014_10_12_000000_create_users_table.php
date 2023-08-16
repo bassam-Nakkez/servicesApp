@@ -13,13 +13,15 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id('userID');
-            $table->string('firstName', 25);
-            $table->string('lastName',25);
+            $table->string('firstName', 25)->nullable();
+            $table->string('lastName',25)->nullable();
+            $table->text('token')->nullable();
             $table->string('email', 60 )->unique();
          // $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('gender',['male','fmale']);
+            $table->string('gender')->nullable();
             $table->date('birth')->nullable();
+            $table->string('groupId')->nullable();
             $table->integer('status')->nullable();
             $table->string('civility_code')->nullable();
             $table->string('personal_email')->nullable();
@@ -36,11 +38,17 @@ return new class extends Migration
             $table->string('datem')->nullable();
             $table->string('socid')->nullable();
             $table->string('user')->nullable();
+            $table->integer('entity')->nullable();
+            $table->integer('reset')->nullable();
             $table->integer('country_id')->nullable();
             $table->integer('country_code')->nullable();
-            $table->integer('phone')->nullable()->main(7)->max(10);
+            $table->string('phone')->nullable();
             $table->string('type')->nullable();
             $table->integer('fk_user')->nullable();
+            $table->integer('subscriptionType')->nullable();
+            $table->string('urssafMember')->nullable();
+            $table->string('clientId')->nullable();
+            $table->text('photo')->nullable();
             $table->timestamps();
         });
     }

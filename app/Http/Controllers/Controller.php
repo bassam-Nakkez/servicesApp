@@ -24,14 +24,15 @@ class Controller extends BaseController
     }
 
 
-    public function sendError ( $error ,  $errorMessages = [] , $code = 404)
+    public function sendError ( $message ,  $data = [] , $code = 404)
     {
 
         $respons =
         [
             'statusCode' => $code ,
-            'data'  => $error ,
-            'message' => $errorMessages,
+            'timestamp'=>date_default_timezone_get(),
+            'data'  => $data ,
+            'message' => $message,
         ];
 
         return response()->json($respons,$code);
