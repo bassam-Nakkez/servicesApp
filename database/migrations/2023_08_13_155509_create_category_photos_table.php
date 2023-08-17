@@ -15,7 +15,14 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('categoryID');
             $table->foreign('categoryID')->references('categoryID')->on('categories');
-            $table->string('photo');
+            $table->string('name');
+            $table->text('path');
+            $table->text('fullname');
+            $table->string('relativename');
+            $table->bigInteger('date');
+            $table->integer('size');
+            $table->string('type');
+            $table->string('level1name');
             $table->timestamps();
         });
     }

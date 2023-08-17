@@ -20,6 +20,16 @@ class Category extends Model
         'photo',
     ];
 
+    /**
+     * Get all of the photos for the Category
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function photo()
+    {
+        return $this->hasMany(CategoryPhoto::class, 'categoryID');
+    }
+
 
 
 }
