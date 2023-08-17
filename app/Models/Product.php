@@ -20,6 +20,7 @@ class Product extends Model
         'priceIncludesTax',
         'condtion',
         'categoryID',
+        'description'
 
     ];
 
@@ -41,18 +42,18 @@ class Product extends Model
      */
     public function multiprices()
     {
-        return $this->hasOne(Multiple::class);
+        return $this->hasOne(Multiprice::class,'productID','productID');
     }
 
-    public function MultipricesIncludesTaxes()
+    public function multipricesIncludesTax()
     {
-        return $this->hasOne(Multiple::class);
+        return $this->hasOne(MultipricesIncludesTax::class,'productID','productID');
     }
 
 
-    public function MultipricesTaxRate()
+    public function multipricesTaxRate()
     {
-        return $this->hasOne(Multiple::class);
+        return $this->hasOne(MultipricesTaxRate::class,'productID','productID');
     }
 
 

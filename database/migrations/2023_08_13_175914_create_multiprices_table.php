@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('multiprices', function (Blueprint $table) {
-            $table->id('productID')->unsigned();
-            $table->foreign('productID')->references('productID')->on('products');
+            $table->id();
+            $table->foreignId('productID')->references('productID')->on('products');
             $table->float('first');
             $table->float('second');
             $table->timestamps();

@@ -9,11 +9,11 @@ class MultipricesIncludesTax extends Model
 {
     use HasFactory;
     protected $table = 'multiprices_includes_taxes';
-    protected $primaryKey ='productID';
+    protected $primaryKey ='id';
     protected $fillable =
      [
-        'first',
-        'second',
+        "first",
+        "second"
     ];
 
 

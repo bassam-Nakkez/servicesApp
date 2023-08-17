@@ -9,11 +9,11 @@ class MultipricesTaxRate extends Model
 {
     use HasFactory;
     protected $table = 'multiprices_tax_rates';
-    protected $primaryKey ='productID';
+    protected $primaryKey ='id';
     protected $fillable =
      [
-        'first',
-        'second',
+        "first",
+        "second"
     ];
 
     public function product()

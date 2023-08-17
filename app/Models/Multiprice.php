@@ -9,11 +9,11 @@ class Multiprice extends Model
 {
     use HasFactory;
     protected $table = 'multiprices';
-    protected $primaryKey ='productID';
+    protected $primaryKey ='id';
     protected $fillable =
      [
-        'first',
-        'second',
+        "first",
+        "second"
     ];
 
     public function product()

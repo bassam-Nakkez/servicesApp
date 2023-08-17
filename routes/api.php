@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\Api\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\FaqController;
+use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\TrickestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +20,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix'=>"categories"],function (){
     Route::get('categories',[CategoryController::class,'index']);
+    Route::get('all',[CategoryController::class,'indexWithOutPhoto']);
+    Route::get('faqs',[FaqController::class,'index']);
+    Route::get('/{faqs_id}',[FaqController::class,'getFaqsChild']);
 });
+Route::get('productsByCategoryId/{category_id}',[CategoryController::class,'getProductByCategory']);
+
+Route::post('/tickets/becomeAnEmployee',[TrickestController::class,'add']);

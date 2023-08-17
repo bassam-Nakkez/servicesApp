@@ -9,10 +9,11 @@ class Sub_Faq extends Model
 {
     use HasFactory;
     protected $table = 'sub__faqs';
-    protected $primaryKey ='id';
+    protected $primaryKey ='subFaqID';
 
     protected $fillable =
     [
+        
        'lable' ,
        'color',
        'description',

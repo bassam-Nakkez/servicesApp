@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('categoryID');
             $table->foreign('categoryID')->references('categoryID')->on('categories');
             $table->string('lable');
+            $table->text('description');
             $table->float('price');
             $table->float('priceMin');
             $table->float('priceIncludesTax');
