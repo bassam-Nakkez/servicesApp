@@ -1,5 +1,10 @@
 <?php
 
+<<<<<<< Updated upstream
+=======
+use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\OrderController;
+>>>>>>> Stashed changes
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\FaqController;
@@ -24,6 +29,11 @@ Route::group(['prefix'=>"categories"],function (){
     Route::get('faqs',[FaqController::class,'index']);
     Route::get('/{faqs_id}',[FaqController::class,'getFaqsChild']);
 });
+<<<<<<< Updated upstream
 Route::get('productsByCategoryId/{category_id}',[CategoryController::class,'getProductByCategory']);
 
 Route::post('/tickets/becomeAnEmployee',[TrickestController::class,'add']);
+=======
+
+Route::get('order/history',[OrderController::class , 'history']);
+>>>>>>> Stashed changes
