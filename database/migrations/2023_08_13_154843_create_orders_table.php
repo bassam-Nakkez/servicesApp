@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('orderID');
             $table->integer('socid')->nullable();
             $table->integer('type')->nullable();
-            $table->unsignedBigInteger('UserID');
+            $table->unsignedBigInteger('UserID')->nullable();
             $table->foreign('UserID')->references('UserID')->on('users');
             $table->integer('contactID')->nullable();
             $table->date('date')->nullable();

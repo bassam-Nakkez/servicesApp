@@ -17,7 +17,7 @@ class ExtraInfoForPayment extends Model
         'datepaye',
         'closepaidinvoices' ,
         'accountid',
-        'payment',
+        'num_payment',
         'comment',
     ];
 

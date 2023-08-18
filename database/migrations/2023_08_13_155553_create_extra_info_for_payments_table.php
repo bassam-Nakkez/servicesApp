@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('extra_info_for_payments', function (Blueprint $table) {
             $table->id('extraInfoForPayment_id');
             $table->unsignedBigInteger('orderID')->nullable();
-            $table->date('datepaye')->nullable();
+            $table->integer('datepaye')->nullable();
             $table->string('closepaidinvoices')->nullable();
             $table->integer('accountid')->nullable();
-            $table->string('payment')->nullable();
+            $table->string('num_payment')->nullable();
             $table->string('comment')->nullable();
             $table->foreign('orderID')->references('orderID')->on('orders');
 

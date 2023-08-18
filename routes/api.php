@@ -31,3 +31,9 @@ Route::get('productsByCategoryId/{category_id}',[CategoryController::class,'getP
 Route::post('/tickets/becomeAnEmployee',[TrickestController::class,'add']);
 
 Route::get('order/history',[OrderController::class , 'history']);
+
+
+Route::get('order/upcomming',[OrderController::class , 'upcomming']);
+
+Route::post('order/create/service',[OrderController::class , 'CreateService']);
+
