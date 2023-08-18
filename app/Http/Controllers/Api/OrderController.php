@@ -9,6 +9,7 @@ use App\Models\Line;
 use App\Models\LineOptions;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\RatingOrder;
 use App\Models\User;
 use Faker\Provider\ar_EG\Payment;
 use GrahamCampbell\ResultType\Success;
@@ -70,13 +71,16 @@ class OrderController extends Controller
 
 
 
-    //------------ upcomming
+    //------------<<<<<  upcomming  >>>>>>--------
     public function upcomming (Request $request)
     {
         try {
         $user = Auth::user();
         //$id = Auth::id();
-         $orders = Order::query()->where('userID','=', 1)->where('status' , '=' , 0)->where('isRecurrent','=' , 1)
+         $orders = Order::query()
+         ->where('userID','=', 1)
+         ->where('status' , '=' , 0)
+         ->where('isRecurrent','=' , 1)
          ->limit($request['limit'])->latest()->get(); // >>>> status = 0
 
          $tempArray = array();
@@ -115,14 +119,20 @@ class OrderController extends Controller
 }
 
 
+
+
+
+    //------------ <<<<  CreateService  >>>>-----------------
+
     public function CreateService(Request $request)
     {
 
         try{
-        $payment = ExtraInfoForPayment::create($request['extraInfoForPayment']);
-        unset( $request['extraInfoForPayment'] );
-        $line = $request['lines'];
-        unset($request['lines']);
+
+        ExtraInfoForPayment::create($request['extraInfoForPayment']);
+        unset( $request['extraInfoForPayment'] ); // remove extraInfoForPayment from request
+        $line = $request['lines']; // get line from request and put it in $line
+        unset($request['lines']);  // remove line from request
         $this->renameArrayKey($request , 'contactId' , 'contactID');
         $request['contactID'] = intval($request['contactID']);
         $order = Order::create($request->all());
@@ -145,6 +155,53 @@ class OrderController extends Controller
    }
 
 }
+
+
+
+//------------ <<<<  Rating Order >>>>-----------------
+
+
+public function rating(Request $request , $orderId , $lineId)
+{
+
+    try{
+
+    $input = $request['ratingOps'];
+    $input['orderID'] = $orderId;
+    $input['lineID']  = $lineId;
+
+    if ( !RatingOrder::query()->where('orderID','=',$orderId)->where('lineID','=',$lineId)->exists())
+    {
+        if(Line::query()->where('orderID','=',$orderId)->where('lineID','=',$lineId)->exists())
+        {
+            RatingOrder::create($input);
+            $this->sendSuccess('order rating successfully');
+        }
+        else
+        {
+            $this->sendError(' order not exists ');
+        }
+    }
+    else
+    {
+        RatingOrder::where('orderID', $orderId)
+        ->where('lineID', $lineId)
+        ->update($input);
+
+    }
+
+    }
+    catch (\Throwable $th) {
+        return $this->sendError( $th->getMessage() ,'no data', 404);
+     }
+}
+
+
+
+
+
+
+
 
 
 

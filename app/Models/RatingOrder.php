@@ -16,6 +16,7 @@ class RatingOrder extends Model
     protected $fillable =
      [
         'orderID',
+        'lineID',
         'options_efficacite',
         'options_ponctualite' ,
         'options_presentation',

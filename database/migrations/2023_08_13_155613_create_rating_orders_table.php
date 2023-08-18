@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('rating_orders', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('orderID');
+            $table->unsignedBigInteger('lineID');
+            $table->foreign('lineID')->references('lineID')->on('lines');
             $table->string('options_efficacite')->nullable();
             $table->string('options_ponctualite')->nullable();
             $table->string('options_presentation')->nullable();

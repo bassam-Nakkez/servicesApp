@@ -23,6 +23,19 @@ class Controller extends BaseController
     return response()->json($respons , $code);
     }
 
+    public function sendSuccess ( $messages )
+    {
+    $respons =
+    [
+        'statusCode' => 200 ,
+        'success' =>  true ,
+        'message' => $messages,
+    ];
+    return response()->json($respons);
+    }
+
+
+
 
     public function sendError ( $message ,  $data = [] , $code = 404)
     {

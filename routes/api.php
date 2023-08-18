@@ -37,3 +37,5 @@ Route::get('order/upcomming',[OrderController::class , 'upcomming']);
 
 Route::post('order/create/service',[OrderController::class , 'CreateService']);
 
+
+Route::post('order/rating/{orderId}/{lineId}',[OrderController::class , 'rating']);
