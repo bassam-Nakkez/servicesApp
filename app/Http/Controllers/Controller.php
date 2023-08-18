@@ -6,6 +6,8 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 
+use function PHPSTORM_META\map;
+
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
@@ -16,8 +18,8 @@ class Controller extends BaseController
     $respons =
     [
         'statusCode' => $code ,
-        'data' =>  $result ,
         'message' => $messages,
+        'data' =>  $result ,
     ];
 
     return response()->json($respons , $code);
@@ -54,8 +56,17 @@ class Controller extends BaseController
 
     function renameArrayKey ($array  , $oldName , $newName )
     {
-        $array[$newName] = $array[$oldName];
-        unset( $array[$oldName] );
+        if($array[$oldName]==null)
+        {
+            $array[$newName] = null;
+            unset( $array[$oldName] );
+        }
+        else{
+
+            $array[$newName] = $array[$oldName];
+            unset( $array[$oldName] );
+        }
+
     }
 
     function withoutCreated_at ($array)

@@ -15,7 +15,6 @@ class Line extends Model
     protected $fillable =
      [
         'orderID',
-        '',
         'qty',
         'dateStart',
         'dateEnd',

@@ -39,3 +39,10 @@ Route::post('order/create/service',[OrderController::class , 'CreateService']);
 
 
 Route::post('order/rating/{orderId}/{lineId}',[OrderController::class , 'rating']);
+
+
+Route::get('order/orderDetails/{orderId}',[OrderController::class , 'orderDetails']);
+
+Route::post('order/save/service',[OrderController::class , 'saveService']);
+
+

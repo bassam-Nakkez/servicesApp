@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Contact;
 use App\Models\ExtraInfoForPayment;
 use App\Models\Line;
 use App\Models\LineOptions;
@@ -17,25 +18,26 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+use function PHPUnit\Framework\isEmpty;
+
 class OrderController extends Controller
 {
 
 
 
 
-    //------------get history user's orders
+    //------------ <<< get history of user's orders  >>>-----
 
     public function history(Request $request)
     {
         try{
         $user = Auth::user();
         //$id = Auth::id();
-         $orders = Order::query()->where('userID','=', 1)->where('status' , '=' , 1)
+         $orders = Order::query()->where('userID', $user->id)->where('status' , 1)
          ->limit($request['limit'])->latest()->get();
 
          $tempArray = array();
          for ( $i=0 ; $i<count($orders) ; $i++ ) { // for every order
-             $this->logicValue($orders[$i] , 'isRecurrent');
              $lines= $orders[$i]->line;
              unset( $orders[$i]['line']); // remove line index from order
 
@@ -72,20 +74,20 @@ class OrderController extends Controller
 
 
     //------------<<<<<  upcomming  >>>>>>--------
+
     public function upcomming (Request $request)
     {
         try {
         $user = Auth::user();
         //$id = Auth::id();
          $orders = Order::query()
-         ->where('userID','=', 1)
+         ->where('userID','=', $user->id)
          ->where('status' , '=' , 0)
          ->where('isRecurrent','=' , 1)
          ->limit($request['limit'])->latest()->get(); // >>>> status = 0
 
          $tempArray = array();
          for ( $i=0 ; $i<count($orders) ; $i++ ) { // for every order
-             $this->logicValue($orders[$i] , 'isRecurrent');
              $lines= $orders[$i]->line;
              unset( $orders[$i]['line']); // remove line index from order
 
@@ -122,7 +124,8 @@ class OrderController extends Controller
 
 
 
-    //------------ <<<<  CreateService  >>>>-----------------
+    //------------ <<<<  Create Service  >>>>-----------------
+
 
     public function CreateService(Request $request)
     {
@@ -148,7 +151,7 @@ class OrderController extends Controller
            // LineOptions::create($options);
         }
 
-        return $this->sendRespons($request  , 'service created successfully');
+        return $this->sendSuccess('service created successfully');
         }
       catch (\Throwable $th) {
       return $this->sendError( $th->getMessage() ,'no data', 404);
@@ -175,11 +178,11 @@ public function rating(Request $request , $orderId , $lineId)
         if(Line::query()->where('orderID','=',$orderId)->where('lineID','=',$lineId)->exists())
         {
             RatingOrder::create($input);
-            $this->sendSuccess('order rating successfully');
+          return  $this->sendSuccess('order rating successfully');
         }
         else
         {
-            $this->sendError(' order not exists ');
+            return $this->sendError(' order not exists ');
         }
     }
     else
@@ -187,6 +190,8 @@ public function rating(Request $request , $orderId , $lineId)
         RatingOrder::where('orderID', $orderId)
         ->where('lineID', $lineId)
         ->update($input);
+
+        return  $this->sendSuccess('order rating successfully');
 
     }
 
@@ -199,6 +204,82 @@ public function rating(Request $request , $orderId , $lineId)
 
 
 
+//----------------<<< get order's details >>>>>---------------
+
+public function orderDetails(Request $request , $orderId)
+{
+    try{
+
+    if(Order::query()->where('orderID', $orderId)->exists())
+    {
+         $order = Order::query()
+         ->where('orderID', $orderId)
+         ->get();
+
+        $lines =  $order[0]['lines']= $order[0]->line;
+        unset( $order[0]['line']); // remove line index from order
+             for ( $i=0 ; $i<count($lines) ; $i++ ) { // for every line
+             // change line atrebuits to send
+             $options = LineOptions::query()->where('lineID','=', $lines[$i]['lineID'])->get();
+             $lines[$i]['array_options'] =  $options;
+             unset($options['lineID']);
+             $this->renameArrayKey($lines[$i] ,'lineID', 'id');
+             $this->renameArrayKey($lines[$i] ,'product_desc', 'desc' );
+             $product = Product::query()->where('productID','=' , $lines[$i]['fk_product'])->get();
+             if(!isEmpty($product))
+             {
+                $lines[$i]['product_label'] = $product['lable'];
+             }
+             else{$lines[$i]['product_label'] = null;}
+
+            //  Contact::query()->where('contactID' , $order[0]['contactID'])->get();
+            // $this->renameArrayKey($order[0]['contactID'], 'contacts_ids','contactID');
+    }
+         $success['result'] = $order[0];
+         return $this->sendRespons($success , "ORDER Created successfully" );
+      }
+    }
+    catch (\Throwable $th) {
+        return $this->sendError( $th->getMessage() ,'no data', 404);
+     }
+
+}
+
+
+
+
+//------------- <<<  save Service  >>>>
+
+public function saveService(Request $request)
+{
+    try{
+
+        ExtraInfoForPayment::create($request['extraInfoForPayment']);
+        unset( $request['extraInfoForPayment'] ); // remove extraInfoForPayment from request
+        $line = $request['lines']; // get line from request and put it in $line
+        unset($request['lines']);  // remove line from request
+        $this->renameArrayKey($request , 'contactId' , 'contactID');
+        $request['contactID'] = intval($request['contactID']);
+        
+        $order = Order::create($request->all());
+
+        for($i=0 ; $i < count( $line ) ; $i++)
+        {
+            $line[$i]['fk_product'] = $line[$i]['productId'];
+            unset($line[$i]['productId']);
+            $line[$i]['$orderID'] = $order->orderID;
+            //$options = $line[$i]['arrayOptions'];  // get arrayOptions from line array
+            //unset($line[$i]['arrayOptions']);  // remove arrayOption after put it in $option varible
+            Line::create($line[$i]);
+           // LineOptions::create($options);
+        }
+
+        return $this->sendSuccess('service saved successfully');
+        }
+      catch (\Throwable $th) {
+      return $this->sendError( $th->getMessage() ,'no data', 404);
+   }
+}
 
 
 

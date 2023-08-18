@@ -18,8 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('orderID')->nullable();
             $table->foreign('orderID')->references('orderID')->on('orders');
             $table->string('qty')->nullable();
-            $table->string('dateStart')->nullable();
-            $table->string('dateEnd')->nullable();
+            $table->string('date_start')->nullable();
+            $table->string('date_end')->nullable();
             $table->string('price')->nullable();
             $table->string('subPrice')->nullable();
             $table->string('multicurrency_subprice')->nullable();
