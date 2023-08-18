@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email', 60 )->unique();
             $table->integer('zip')->nullable();
             $table->string('town', 60 )->nullable();
+            $table->text('address')->nullable();
             $table->unsignedBigInteger('userID');
             $table->foreign('userID')->references('userID')->on('users');
             $table->timestamps();

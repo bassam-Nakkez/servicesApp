@@ -31,7 +31,7 @@ class UserController extends Controller
         }
     }
     catch(\Throwable $e){
-        return parent::sendError('error in DB UserController class line 29',$e->getMessage(),500);
+        return parent::sendError('error in DB UserController class line 34',$e->getMessage(),500);
     }
     }
 
@@ -47,7 +47,7 @@ class UserController extends Controller
                 'statusCode'=>200
             ]],'The User is Register succesfully',201);
         } catch (\Throwable $th) {
-            return parent::sendError('error in DB UserController class line 46',$th->getMessage(),500);
+            return parent::sendError('error in DB UserController class line 50',$th->getMessage(),500);
         }
     }
 
@@ -83,7 +83,19 @@ class UserController extends Controller
             }
             return parent::sendError("Not Found: User not found",null);
         } catch (\Throwable $th) {
-            return parent::sendError('error in DB UserController class line 54',$th->getMessage(),500);
+            return parent::sendError('error in DB UserController class line 86',$th->getMessage(),500);
+        }
+    }
+
+    public function getUser(){
+        try {
+            $user=Auth::user();
+            $user['lastname']=$user['lastName'];
+            $user['birth']="5000";
+            return parent::sendRespons(["result"=>Auth::user()],"The User is Register succesfully",200);
+
+        } catch (\Throwable $th) {
+            return parent::sendError(['error in DB CategoryController line 95'],$th->getMessage(),404);
         }
     }
 

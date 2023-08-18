@@ -18,7 +18,7 @@ class FaqController extends Controller
             }
             return parent::sendRespons(["result"=>$faqs],"GET category",200);
         } catch (\Throwable $th) {
-            return parent::sendError(['error in DB CategoryController line 35'],$th->getMessage(),404);
+            return parent::sendError(['error in DB FaqController line 21'],$th->getMessage(),404);
 
         }
     }
@@ -33,7 +33,7 @@ class FaqController extends Controller
             }
             return parent::sendRespons(["result"=>$faqChild],"GET category",200);
         } catch (\Throwable $th) {
-            return parent::sendError(['error in DB CategoryController line 35'],$th->getMessage(),404);
+            return parent::sendError(['error in DB FaqController line 36'],$th->getMessage(),404);
         }
     }
 }

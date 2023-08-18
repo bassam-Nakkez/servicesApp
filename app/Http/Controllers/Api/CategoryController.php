@@ -20,7 +20,7 @@ class CategoryController extends Controller
             }
             return parent::sendRespons(["result"=>$catcories],"GET category",200);
         } catch (\Throwable $th) {
-            return parent::sendError(['error in DB CategoryController line 19'],$th->getMessage(),404);
+            return parent::sendError(['error in DB CategoryController line 23'],$th->getMessage(),404);
         }
     }
 
@@ -62,7 +62,7 @@ class CategoryController extends Controller
             }
             return parent::sendRespons(["result"=>$producets],"GET SERVICE",200);
         } catch (\Throwable $th) {
-            return parent::sendError(['error in DB CategoryController line 52'],$th->getMessage(),404);
+            return parent::sendError(['error in DB CategoryController line 65'],$th->getMessage(),404);
         }
 
     }
