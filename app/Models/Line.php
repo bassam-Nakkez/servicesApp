@@ -11,10 +11,11 @@ class Line extends Model
 
 
     protected $table = 'lines';
-    protected $primaryKey ='productID';
+    protected $primaryKey ='lineID';
     protected $fillable =
      [
         'orderID',
+        '',
         'qty',
         'dateStart',
         'dateEnd',
@@ -46,7 +47,7 @@ class Line extends Model
     {
         return $this->belongsTo(Order::class, 'orderID');
     }
-    
+
     /**
      * Get the LineOptions associated with the Line
      *
@@ -54,7 +55,7 @@ class Line extends Model
      */
     public function LineOptions()
     {
-        return $this->hasOne(LineOptions::class);
+        return $this->hasOne(LineOptions::class , 'lineID');
     }
 
 

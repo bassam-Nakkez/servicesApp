@@ -22,6 +22,7 @@ class Product extends Model
         'categoryID',
         'description'
 
+
     ];
 
 
@@ -32,8 +33,9 @@ class Product extends Model
      */
     public function category()
     {
-        return $this->belongsTo(Category::class, 'categoryID');
+        return $this->belongsTo(Category::class, 'categoryID'  ,'categoryID');
     }
+
 
     /**
      * Get the multiprices associated with the Product

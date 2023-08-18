@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('lines', function (Blueprint $table) {
-            $table->id('productID');
+            $table->id('lineID');
+            $table->unsignedBigInteger('fk_product')->nullable();
+            $table->foreign('fk_product')->references('productID')->on('products');
             $table->unsignedBigInteger('orderID')->nullable();
             $table->foreign('orderID')->references('orderID')->on('orders');
-            // $table->unsignedBigInteger('lineOPtionId')->nullable();
-            // $table->foreign('lineOPtionId')->references('lineOPtionId')->on('line_options');
             $table->string('qty')->nullable();
             $table->date('dateStart')->nullable();
             $table->date('dateEnd')->nullable();

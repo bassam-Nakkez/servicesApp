@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('line_options', function (Blueprint $table) {
             $table->id('lineOptionID');
             $table->unsignedBigInteger('lineID');
-            $table->foreign('lineID')->references('productID')->on('lines');
+            $table->foreign('lineID')->references('lineID')->on('lines');
             $table->string('options_fk_fichinter');
             $table->string('options_efficacite');
             $table->string('options_ponctualite');

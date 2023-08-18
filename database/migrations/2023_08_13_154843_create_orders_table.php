@@ -15,11 +15,13 @@ return new class extends Migration
             $table->id('orderID');
             $table->integer('socid')->nullable();
             $table->integer('type')->nullable();
+            $table->unsignedBigInteger('UserID');
+            $table->foreign('UserID')->references('UserID')->on('users');
             $table->integer('contactID')->nullable();
             $table->date('date')->nullable();
             $table->string('note_public')->nullable();
             $table->boolean('subscriptionType')->nullable();
-            $table->date('dateCommande')->nullable();
+            $table->date('date_Commande')->nullable();
             $table->boolean('status')->default(false);
             $table->boolean('isRecurrent')->default(false);
             $table->float('multicurrency_subprice')->nullable();

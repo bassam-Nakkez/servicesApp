@@ -35,6 +35,7 @@ class Order extends Model
         'total_ttc',
         'multicurrency_total_ht',
         'subprice',
+        'userID'
     ];
 
 
@@ -46,6 +47,28 @@ class Order extends Model
     public function contact()
     {
         return $this->belongsTo(Contact::class, 'contactID');
+    }
+
+
+    /**
+     * Get the user that owns the user
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class , 'userID');
+    }
+
+
+    /**
+     * Get all of the line for the Order
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function line()
+    {
+        return $this->hasMany(Line::class, 'orderID');
     }
 
 

@@ -37,4 +37,17 @@ class Controller extends BaseController
 
         return response()->json($respons,$code);
     }
+
+
+    function renameArrayKey ($array  , $oldName , $newName )
+    {
+        $array[$newName] = $array[$oldName];
+        unset( $array[$oldName] );
+    }
+
+    function withoutCreated_at ($array)
+    {
+        unset( $array['created_at'] );
+        unset( $array['updated_at'] );
+    }
 }

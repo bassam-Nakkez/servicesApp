@@ -48,7 +48,6 @@ class User extends Authenticatable
         'country_code',
         'type',
         'fk_user',
-
         "entity",
         "reset"
     ];
@@ -67,6 +66,17 @@ class User extends Authenticatable
     public function contact()
     {
         return $this->hasMany(Contact::class, 'userID');
+    }
+
+
+    /**
+     * Get all of the order for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function order(): HasMany
+    {
+        return $this->hasMany(Comment::class, 'userID');
     }
 
 
