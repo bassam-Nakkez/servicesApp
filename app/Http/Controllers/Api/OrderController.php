@@ -260,7 +260,6 @@ public function saveService(Request $request)
         unset($request['lines']);  // remove line from request
         $this->renameArrayKey($request , 'contactId' , 'contactID');
         $request['contactID'] = intval($request['contactID']);
-        
         $order = Order::create($request->all());
 
         for($i=0 ; $i < count( $line ) ; $i++)
@@ -283,6 +282,42 @@ public function saveService(Request $request)
 
 
 
+
+public function subscription(Request $request)
+{
+    try{
+
+        ExtraInfoForPayment::create($request['extraInfoForPayment']);
+        unset( $request['extraInfoForPayment'] ); // remove extraInfoForPayment from request
+        $line = $request['lines']; // get line from request and put it in $line
+        unset($request['lines']);  // remove line from request
+        $this->renameArrayKey($request , 'contactId' , 'contactID');
+        $request['contactID'] = intval($request['contactID']);
+        $order = Order::create($request->all());
+
+        for($i=0 ; $i < count( $line ) ; $i++)
+        {
+            $line[$i]['fk_product'] = $line[$i]['productId'];
+            unset($line[$i]['productId']);
+            $line[$i]['$orderID'] = $order->orderID;
+            //$options = $line[$i]['arrayOptions'];  // get arrayOptions from line array
+            //unset($line[$i]['arrayOptions']);  // remove arrayOption after put it in $option varible
+            Line::create($line[$i]);
+           // LineOptions::create($options);
+        }
+
+        return $this->sendSuccess('service saved successfully');
+        }
+      catch (\Throwable $th) {
+      return $this->sendError( $th->getMessage() ,'no data', 404);
+   }
+
+
+
+
+
+
+}
 
 
 

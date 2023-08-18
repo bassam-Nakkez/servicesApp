@@ -30,19 +30,23 @@ Route::get('productsByCategoryId/{category_id}',[CategoryController::class,'getP
 
 Route::post('/tickets/becomeAnEmployee',[TrickestController::class,'add']);
 
-Route::get('order/history',[OrderController::class , 'history']);
 
+
+
+
+//----------- <<< Order Route  >>>>
+Route::get('order/history',[OrderController::class , 'history']);
 
 Route::get('order/upcomming',[OrderController::class , 'upcomming']);
 
 Route::post('order/create/service',[OrderController::class , 'CreateService']);
 
-
 Route::post('order/rating/{orderId}/{lineId}',[OrderController::class , 'rating']);
-
 
 Route::get('order/orderDetails/{orderId}',[OrderController::class , 'orderDetails']);
 
 Route::post('order/save/service',[OrderController::class , 'saveService']);
+
+Route::post('order/create/subscription',[OrderController::class , 'subscription']);
 
 
