@@ -15,6 +15,7 @@ use App\Models\User;
 use Faker\Provider\ar_EG\Payment;
 use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -50,7 +51,9 @@ class OrderController extends Controller
              $line['product_label'] = $product[0]['lable'];
              $options = LineOptions::query()->where('lineID','=', $lines[$j]['lineID'])->get();
              $line['array_options'] =  $options;
-             $line['date_start']    =  $lines[$j]['date_start']; // end line atrebuit
+             $line['date_start']  =  $lines[$j]['date_start']; // end line atrebuit
+
+            // $line['date_start']    = Carbon::parse( $lines[$j]['date_start']);
 
               array_push($tempArray , $line);
               $orders[$i]['lines'] = $tempArray;
@@ -102,6 +105,8 @@ class OrderController extends Controller
              $line['array_options'] =  $options;
              $line['date_start']    =  $lines[$j]['date_start']; // end line atrebuit
 
+            // $line['date_start']    = Carbon::parse( $lines[$j]['date_start']);
+
               array_push($tempArray , $line);
               $orders[$i]['lines'] = $tempArray;
 
@@ -138,6 +143,7 @@ class OrderController extends Controller
         unset($request['lines']);  // remove line from request
         $this->renameArrayKey($request , 'contactId' , 'contactID');
         $request['contactID'] = intval($request['contactID']);
+        $request['date'] = Carbon::parse($request['date']);
         $order = Order::create($request->all());
 
         for($i=0 ; $i < count( $line ) ; $i++)
@@ -252,6 +258,8 @@ public function orderDetails(Request $request , $orderId)
 
 public function saveService(Request $request)
 {
+
+
     try{
 
         ExtraInfoForPayment::create($request['extraInfoForPayment']);
@@ -260,8 +268,8 @@ public function saveService(Request $request)
         unset($request['lines']);  // remove line from request
         $this->renameArrayKey($request , 'contactId' , 'contactID');
         $request['contactID'] = intval($request['contactID']);
+        $request['date'] = Carbon::parse($request['date']);
         $order = Order::create($request->all());
-
         for($i=0 ; $i < count( $line ) ; $i++)
         {
             $line[$i]['fk_product'] = $line[$i]['productId'];
@@ -293,6 +301,7 @@ public function subscription(Request $request)
         unset($request['lines']);  // remove line from request
         $this->renameArrayKey($request , 'contactId' , 'contactID');
         $request['contactID'] = intval($request['contactID']);
+        $request['date'] = Carbon::parse($request['date']);
         $order = Order::create($request->all());
 
         for($i=0 ; $i < count( $line ) ; $i++)
@@ -311,12 +320,6 @@ public function subscription(Request $request)
       catch (\Throwable $th) {
       return $this->sendError( $th->getMessage() ,'no data', 404);
    }
-
-
-
-
-
-
 }
 
 
