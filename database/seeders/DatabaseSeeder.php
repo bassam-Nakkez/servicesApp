@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\ArrayOptions;
 use App\Models\CategoryPhoto;
 use App\Models\Multiprice;
 use App\Models\MultipricesIncludesTax;
@@ -28,9 +29,10 @@ class DatabaseSeeder extends Seeder
 
         // CategoryPhoto::factory(5)->create();
         // Product::factory(5)->create();
-        Multiprice::factory(1)->create();
-        MultipricesTaxRate::factory(1)->create();
-        MultipricesIncludesTax::factory(1)->create();
+        // Multiprice::factory(1)->create();
+        // MultipricesTaxRate::factory(1)->create();
+        // MultipricesIncludesTax::factory(1)->create();
         // Sub_Faq::factory(5)->create();
+        ArrayOptions::factory(3)->create();
     }
 }

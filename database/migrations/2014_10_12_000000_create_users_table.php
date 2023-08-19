@@ -49,6 +49,7 @@ return new class extends Migration
             $table->string('urssafMember')->nullable();
             $table->string('clientId')->nullable();
             $table->text('photo')->nullable();
+            $table->text('API-KEY')->nullable();
             $table->timestamps();
         });
     }

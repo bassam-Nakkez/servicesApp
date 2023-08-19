@@ -33,13 +33,13 @@ class OrderController extends Controller
         try{
         $user = Auth::user();
         //$id = Auth::id();
-         $orders = Order::query()->where('userID', $user->id)->where('status' , 1)
-         ->limit($request['limit'])->latest()->get();
+         $orders = Order::query()->where('userID', $user->id)->where('status' , 1)->latest()
+         ->paginate($request['limit']);
 
          $tempArray = array();
-         for ( $i=0 ; $i<count($orders) ; $i++ ) { // for every order
-             $lines= $orders[$i]->line;
-             unset( $orders[$i]['line']); // remove line index from order
+         for ( $i=0 ; $i<count($orders->items()) ; $i++ ) { // for every order
+             $lines= $orders->items()[$i]->line;
+             unset( $orders->items()[$i]['line']); // remove line index from order
 
              for ( $j=0 ; $j<count($lines) ; $j++ ) { // for every line
 

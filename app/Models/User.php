@@ -49,13 +49,14 @@ class User extends Authenticatable
         'type',
         'fk_user',
         "entity",
-        "reset"
+        "reset",
+        "API-KEY"
     ];
 
 
     protected $hidden = [
         'password',
-        'token'
+        "API-KEY"
     ];
 
     /**

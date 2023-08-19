@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('optionsLatitude')->nullable();
             $table->string('optionsLongitude')->nullable();
             $table->string('optionsSurfacem')->nullable();
+            $table->unsignedBigInteger('contactID');
+            $table->foreign('contactID')->references('contactID')->on('contacts');
             $table->timestamps();
         });
     }

@@ -14,11 +14,13 @@ class Contact extends Model
     protected $fillable =
      [
       //  'firstName',
+      'contactID',
         'lastName',
         'email',
         'zip' ,
         'town',
         'userID',
+        'address'
     ];
 
 
@@ -37,9 +39,9 @@ class Contact extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function arrayOption()
+    public function arrayOptions()
     {
-        return $this->hasOne(ArrayOptions::class,'contactID');
+        return $this->hasOne(ArrayOptions::class,'contactID','contactID');
     }
 
     /**

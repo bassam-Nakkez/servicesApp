@@ -16,6 +16,7 @@ class ArrayOptions extends Model
         'optionsLatitude',
         'optionsLongitude',
         'optionsSurfacem',
+        'contactID'
     ];
 
 

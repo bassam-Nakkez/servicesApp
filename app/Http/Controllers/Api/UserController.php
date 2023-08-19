@@ -26,7 +26,6 @@ class UserController extends Controller
             ]],"The User is Register succesfully",200);
         }
         else{
-
             return response()->json(['update this part in code in back the location is \n App/Controlles/Api/UserControllers line 24']);
         }
     }
@@ -58,6 +57,7 @@ class UserController extends Controller
                 $user[0]['entity']=$request->entity;
                 $user[0]['reset']=$request->reset;
                 $user[0]['type']="1";
+                $user[0]['API-KEY']=$request->token;
                 $user[0]['token']=$user[0]->createToken($request->token)->accessToken;
                 $user[0]['subscriptionType']=1;
                 $user[0]['urssafMember']=false;
@@ -69,6 +69,7 @@ class UserController extends Controller
                 else
                 $user[0]['photo']=$user->photo;
                 $user[0]->save();
+
                 $user[0]['userId']=(String)$user[0]->userID ;
                 $user[0]['fullName']=$user[0]->firstName . $user[0]->lastName;
 

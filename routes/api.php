@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Controllers\Api\CategoryController;
-use App\Http\Controllers\Api\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\Notifiction;
 use App\Http\Controllers\Api\FaqController;
+use App\Http\Controllers\Api\OrderController;
+use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\ContactsController;
 use App\Http\Controllers\Api\TrickestController;
 
 /*
@@ -31,6 +33,13 @@ Route::get('productsByCategoryId/{category_id}',[CategoryController::class,'getP
 Route::post('/tickets/becomeAnEmployee',[TrickestController::class,'add']);
 
 
+Route::get('notification',[Notifiction::class,'index']);
+Route::get('notification/send/{id}',[Notifiction::class,'send']);
+
+
+
+Route::get('contacts',[ContactsController::class,'index'])->middleware('auth:api');
+Route::post('contact',[ContactsController::class,'add'])->middleware('auth:api');
 
 
 

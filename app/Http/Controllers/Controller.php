@@ -45,7 +45,7 @@ class Controller extends BaseController
         $respons =
         [
             'statusCode' => $code ,
-            'timestamp'=>date_default_timezone_get(),
+            'timestamp'=>now(),
             'data'  => $data ,
             'message' => $message,
         ];
