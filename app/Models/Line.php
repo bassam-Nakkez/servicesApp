@@ -32,6 +32,7 @@ class Line extends Model
         'total_ttc',
         'total_localtax1',
         'total_localtax2',
+        'fk_product'
 
     ];
 
@@ -58,6 +59,8 @@ class Line extends Model
     {
         return $this->hasOne(LineOptions::class , 'lineID');
     }
+
+
 
 
 

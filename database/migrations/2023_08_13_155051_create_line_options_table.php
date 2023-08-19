@@ -15,13 +15,13 @@ return new class extends Migration
             $table->id('lineOptionID');
             $table->unsignedBigInteger('lineID');
             $table->foreign('lineID')->references('lineID')->on('lines');
-            $table->string('options_fk_fichinter');
-            $table->string('options_efficacite');
-            $table->string('options_ponctualite');
-            $table->string('options_presentation');
-            $table->string('options_avisgeneral');
-            $table->string('options_iseval');
-            $table->string('options_idtasks');
+            $table->string('options_fk_fichinter')->nullable();
+            $table->string('options_efficacite')->nullable();
+            $table->string('options_ponctualite')->nullable();
+            $table->string('options_presentation')->nullable();
+            $table->string('options_avisgeneral')->nullable();
+            $table->string('options_iseval')->nullable();
+            $table->string('options_idtasks')->nullable();
             $table->timestamps();
         });
     }

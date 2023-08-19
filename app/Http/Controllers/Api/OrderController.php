@@ -34,18 +34,19 @@ class OrderController extends Controller
         try{
         $user = Auth::user();
         //$id = Auth::id();
-         $orders = Order::query()->where('userID', $user->id)->where('status' , 1)->latest()
+         $orders = Order::query()->where('userID','=', $user->userID)->where('status','=' , 1)->latest()
          ->paginate($request['limit']);
 
          $tempArray = array();
          for ( $i=0 ; $i<count($orders->items()) ; $i++ ) { // for every order
+            $orders[$i]['id']=(String)$orders[$i]['orderID'];
              $lines= $orders->items()[$i]->line;
              unset( $orders->items()[$i]['line']); // remove line index from order
 
              for ( $j=0 ; $j<count($lines) ; $j++ ) { // for every line
 
              // change line atrebuits to send
-             $line['id'] = $lines[$j]['lineID'];
+             $line['id'] = (String)$lines[$j]['lineID'];
              $line['fk_product'] =  $lines[$j]['fk_product'];
              $product = Product::query()->where('productID','=' , $line['fk_product'])->get();
              $line['product_label'] = $product[0]['lable'];
@@ -60,12 +61,12 @@ class OrderController extends Controller
 
               // change product atrebuits to send
               $send = $product[0]->category;
-              $this->renameArrayKey($send , 'categoryID' , 'id');
+              $send['id']=(String)$send['categoryID'];
               $this->withoutCreated_at($send); // send data without create_at and update_at
               $orders[$i]['category']= $send;
          }
      }
-         $success['result'] = $orders;
+         $success['result'] = $orders->items();
          return $this->sendRespons($success , "GET ORDER LIST" );
         }
         catch (\Throwable $th) {
@@ -84,20 +85,21 @@ class OrderController extends Controller
         $user = Auth::user();
         //$id = Auth::id();
          $orders = Order::query()
-         ->where('userID','=', $user->id)
+         ->where('userID','=', $user->userID)
          ->where('status' , '=' , 0)
-         ->where('isRecurrent','=' , 1)
-         ->limit($request['limit'])->latest()->get(); // >>>> status = 0
+         ->latest()->paginate($request['limit']); // >>>> status = 0
 
          $tempArray = array();
-         for ( $i=0 ; $i<count($orders) ; $i++ ) { // for every order
-             $lines= $orders[$i]->line;
-             unset( $orders[$i]['line']); // remove line index from order
 
+         for ( $i=0 ; $i<count($orders->items()) ; $i++ ) { // for every order
+            $orders[$i]['id']=(String)$orders[$i]['orderID'];
+             $lines= $orders->items()[$i]->line;
+             unset( $orders->items()[$i]['line']); // remove line index from order
+            $orders->items()[$i]['isRecurrent']=(bool)$orders->items()[$i]['isRecurrent'];
              for ( $j=0 ; $j<count($lines) ; $j++ ) { // for every line
 
              // change line atrebuits to send
-             $line['id'] = $lines[$j]['lineID'];
+             $line['id'] = (String)$lines[$j]['lineID'];
              $line['fk_product'] =  $lines[$j]['fk_product'];
              $product = Product::query()->where('productID','=' , $line['fk_product'])->get();
              $line['product_label'] = $product[0]['lable'];
@@ -108,16 +110,16 @@ class OrderController extends Controller
             // $line['date_start']    = Carbon::parse( $lines[$j]['date_start']);
 
               array_push($tempArray , $line);
-              $orders[$i]['lines'] = $tempArray;
+              $orders->items()[$i]['lines'] = $tempArray;
 
               // change product atrebuits to send
               $send = $product[0]->category;
-              $this->renameArrayKey($send , 'categoryID' , 'id');
+              $send['id']=(String)$send['categoryID'];
               $this->withoutCreated_at($send); // send data without create_at and update_at
-              $orders[$i]['category']= $send;
+              $orders->items()[$i]['category']= $send;
          }
      }
-         $success['result'] = $orders;
+         $success['result'] = $orders->items();
          return $this->sendRespons($success , "GET ORDER LIST" );
     }
      catch (\Throwable $th) {
@@ -183,8 +185,8 @@ public function rating(Request $request , $orderId , $lineId)
     {
         if(Line::query()->where('orderID','=',$orderId)->where('lineID','=',$lineId)->exists())
         {
-            RatingOrder::create($input);
-          return  $this->sendSuccess('order rating successfully');
+            $rate=RatingOrder::create($input);
+          return  $this->sendRespons(['result'=>$orderId],"ORDER Created successfully",201);
         }
         else
         {
@@ -197,7 +199,7 @@ public function rating(Request $request , $orderId , $lineId)
         ->where('lineID', $lineId)
         ->update($input);
 
-        return  $this->sendSuccess('order rating successfully');
+        return  $this->sendRespons(['result'=>$orderId],"ORDER Created successfully",201);
 
     }
 
@@ -226,17 +228,23 @@ public function orderDetails(Request $request , $orderId)
         unset( $order[0]['line']); // remove line index from order
              for ( $i=0 ; $i<count($lines) ; $i++ ) { // for every line
              // change line atrebuits to send
+             $order[$i]['date']=(int)$order[$i]['date'];
+             $order[$i]['date_Commande']=(int)$order[$i]['date_Commande'];
              $options = LineOptions::query()->where('lineID','=', $lines[$i]['lineID'])->get();
              $lines[$i]['array_options'] =  $options;
-             unset($options['lineID']);
-             $this->renameArrayKey($lines[$i] ,'lineID', 'id');
-             $this->renameArrayKey($lines[$i] ,'product_desc', 'desc' );
+             $lines[$i]['id']=(String)$lines[$i]['lineID'];
+             $lines[$i]['date_end']=(int)$lines[$i]['dateEnd'];
+             $lines[$i]['date_start']=(int)$lines[$i]['dateStart'];
+             $lines[$i]['subprice']=$lines[$i]['subPrice'];
+
              $product = Product::query()->where('productID','=' , $lines[$i]['fk_product'])->get();
-             if(!isEmpty($product))
+             if($product)
              {
-                $lines[$i]['product_label'] = $product['lable'];
+                $lines[$i]['product_label'] = $product[0]['lable'];
+                $lines[$i]['product_desc'] = $product[0]['description'];
              }
-             else{$lines[$i]['product_label'] = null;}
+             else{$lines[$i]['product_label'] = null;
+            }
 
             //  Contact::query()->where('contactID' , $order[0]['contactID'])->get();
             // $this->renameArrayKey($order[0]['contactID'], 'contacts_ids','contactID');

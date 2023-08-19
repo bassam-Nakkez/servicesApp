@@ -46,19 +46,23 @@ Route::post('contact',[ContactsController::class,'add'])->middleware('auth:api')
 
 
 //----------- <<< Order Route  >>>>
-Route::get('order/history',[OrderController::class , 'history']);
 
-Route::get('order/upcomming',[OrderController::class , 'upcomming']);
+Route::group(['prefix'=>'order','middleware'=>'auth:api'] ,function ()  {
+    Route::get('history',[OrderController::class , 'history']);
 
-Route::post('order/create/service',[OrderController::class , 'CreateService']);
+    Route::get('upcomming',[OrderController::class , 'upcomming']);
 
-Route::post('order/rating/{orderId}/{lineId}',[OrderController::class , 'rating']);
+    Route::post('create/service',[OrderController::class , 'CreateService']);
 
-Route::get('order/orderDetails/{orderId}',[OrderController::class , 'orderDetails']);
+    Route::post('rating/{orderId}/{lineId}',[OrderController::class , 'rating']);
 
-Route::post('order/save/service',[OrderController::class , 'saveService']);
+    Route::get('orderDetails/{orderId}',[OrderController::class , 'orderDetails']);
 
-Route::post('order/create/subscription',[OrderController::class , 'subscription']);
+    Route::post('save/service',[OrderController::class , 'saveService']);
+
+    Route::post('create/subscription',[OrderController::class , 'subscription']);
+
+});
 
 
 

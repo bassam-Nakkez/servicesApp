@@ -6,9 +6,12 @@ namespace Database\Seeders;
 
 use App\Models\ArrayOptions;
 use App\Models\CategoryPhoto;
+use App\Models\Line;
+use App\Models\LineOptions;
 use App\Models\Multiprice;
 use App\Models\MultipricesIncludesTax;
 use App\Models\MultipricesTaxRate;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\Sub_Faq;
 use Illuminate\Database\Seeder;
@@ -29,10 +32,13 @@ class DatabaseSeeder extends Seeder
 
         // CategoryPhoto::factory(5)->create();
         // Product::factory(5)->create();
-        // Multiprice::factory(1)->create();
-        // MultipricesTaxRate::factory(1)->create();
-        // MultipricesIncludesTax::factory(1)->create();
-        // Sub_Faq::factory(5)->create();
+        Multiprice::factory(1)->create();
+        MultipricesTaxRate::factory(1)->create();
+        MultipricesIncludesTax::factory(1)->create();
+        Sub_Faq::factory(5)->create();
         ArrayOptions::factory(3)->create();
+        Order::factory()->create();
+        Line::factory()->create();
+        LineOptions::factory()->create();
     }
 }
