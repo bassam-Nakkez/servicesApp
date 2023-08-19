@@ -51,7 +51,7 @@ class OrderController extends Controller
              $line['product_label'] = $product[0]['lable'];
              $options = LineOptions::query()->where('lineID','=', $lines[$j]['lineID'])->get();
              $line['array_options'] =  $options;
-             $line['date_start']  =  $lines[$j]['date_start']; // end line atrebuit
+             $line['date_start']  =  $lines[$j]['dateStart']; // end line atrebuit
 
             // $line['date_start']    = Carbon::parse( $lines[$j]['date_start']);
 
@@ -321,9 +321,5 @@ public function subscription(Request $request)
       return $this->sendError( $th->getMessage() ,'no data', 404);
    }
 }
-
-
-
-
 
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\FaqController;
+use App\Http\Controllers\Api\StripeController;
 use App\Http\Controllers\Api\TrickestController;
 
 /*
@@ -50,3 +51,12 @@ Route::post('order/save/service',[OrderController::class , 'saveService']);
 Route::post('order/create/subscription',[OrderController::class , 'subscription']);
 
 
+
+
+
+
+///////////// payment Routes
+
+Route::post('/payments/stripe/create', [ StripeController::class, 'StripePayment']);
+Route::post('/payments/stripe/confirm', [StripeController::class, 'confirmPayment']);
+Route::post('/payments/stripe/subscription', [StripeController::class, 'createSubscription']);

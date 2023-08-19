@@ -28,7 +28,6 @@ class FaqController extends Controller
             $faqChild=Sub_Faq::query()->where('faqID','=',$faq_id)->get();
             for($i=0;$i<count($faqChild);$i++)
             {
-                
                 $faqChild[$i]['id']=(String)$faqChild[$i]['subFaqID'];
             }
             return parent::sendRespons(["result"=>$faqChild],"GET category",200);
