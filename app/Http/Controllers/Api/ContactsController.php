@@ -58,8 +58,21 @@ class ContactsController extends Controller
             }
             return parent::sendRespons(["result"=>$contact->contactID],"Get contact",200);
         } catch (\Throwable $th) {
-            return parent::sendError(['error in DB ContactController line 47'],$th->getMessage(),404);
+            return parent::sendError(['error in DB ContactController line 61'],$th->getMessage(),404);
 
+        }
+    }
+
+    public function delete(int $contactId)  {
+        try {
+            ArrayOptions::query()->where('contactID','=',$contactId)->delete();
+            Contact::query()->where('contactID','=',$contactId)->delete();
+            return parent::sendRespons(["result"=>['data'=>null,'message'=>'the contact is Deleted successfully',
+            'statusCode'=>200]],"the contact is Deleted successfully",200);
+
+        } catch (\Throwable $th) {
+            return parent::sendRespons(["result"=>['data'=>null,'message'=>$th->getMessage(),
+            'statusCode'=>200]],"error in DB ContactController line 72",404);
         }
     }
 }

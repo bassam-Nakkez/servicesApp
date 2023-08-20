@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ComplimentOrderRequest;
 use App\Models\Category;
+use App\Models\ComplimentOrder;
 use App\Models\Contact;
+use App\Models\DoOrder;
 use App\Models\ExtraInfoForPayment;
 use App\Models\Line;
 use App\Models\LineOptions;
@@ -137,8 +140,8 @@ class OrderController extends Controller
     public function CreateService(Request $request)
     {
 
+        DB::beginTransaction();
         try{
-
         ExtraInfoForPayment::create($request['extraInfoForPayment']);
         unset( $request['extraInfoForPayment'] ); // remove extraInfoForPayment from request
         $line = $request['lines']; // get line from request and put it in $line
@@ -158,10 +161,11 @@ class OrderController extends Controller
             Line::create($line[$i]);
            // LineOptions::create($options);
         }
-
-        return $this->sendSuccess('service created successfully');
+        DB::commit();
+        return $this->sendRespons(['result'=>$order->orderID],'service created successfully');
         }
       catch (\Throwable $th) {
+        DB::rollBack();
       return $this->sendError( $th->getMessage() ,'no data', 404);
    }
 
@@ -185,7 +189,7 @@ public function rating(Request $request , $orderId , $lineId)
     {
         if(Line::query()->where('orderID','=',$orderId)->where('lineID','=',$lineId)->exists())
         {
-            $rate=RatingOrder::create($input);
+            RatingOrder::create($input);
           return  $this->sendRespons(['result'=>$orderId],"ORDER Created successfully",201);
         }
         else
@@ -329,5 +333,30 @@ public function subscription(Request $request)
       return $this->sendError( $th->getMessage() ,'no data', 404);
    }
 }
+
+
+
+    public function complimentOrder(ComplimentOrderRequest $request) {
+        try {
+            $compliment=ComplimentOrder::query()->create($request->all());
+            return parent::sendRespons(["result"=>$compliment->complimentOrderId],"send Compliment thank you",200);
+        } catch (\Throwable $th) {
+            return parent::sendError(['error in DB CategoryController line 342'],$th->getMessage(),404);
+        }
+
+    }
+
+    public function doOrder(ComplimentOrderRequest $request) {
+        try {
+            $compliment=DoOrder::query()->create($request->all());
+            $statusOrder=Order::query()->findOrFail($request->orderId);
+            $statusOrder->status=1;
+            $statusOrder->save();
+            return parent::sendRespons(["result"=>$compliment->doOrderId],"send report work",200);
+        } catch (\Throwable $th) {
+            return parent::sendError(['error in DB CategoryController line 342'],$th->getMessage(),404);
+        }
+
+    }
 
 }

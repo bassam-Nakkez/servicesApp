@@ -16,6 +16,14 @@ class MultipricesIncludesTax extends Model
         "second"
     ];
 
+    protected $hidden = [
+        "first",
+        "second",
+        "productID",
+        "created_at",
+         "updated_at"
+    ];
+
 
     /**
      * Get the product that owns the MultipricesIncludesTax

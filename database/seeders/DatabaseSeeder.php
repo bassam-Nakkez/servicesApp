@@ -14,6 +14,7 @@ use App\Models\MultipricesTaxRate;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Sub_Faq;
+use App\Models\Task;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -32,13 +33,14 @@ class DatabaseSeeder extends Seeder
 
         // CategoryPhoto::factory(5)->create();
         // Product::factory(5)->create();
-        Multiprice::factory(1)->create();
-        MultipricesTaxRate::factory(1)->create();
-        MultipricesIncludesTax::factory(1)->create();
-        Sub_Faq::factory(5)->create();
-        ArrayOptions::factory(3)->create();
-        Order::factory()->create();
-        Line::factory()->create();
-        LineOptions::factory()->create();
+        // Multiprice::factory(1)->create();
+        // MultipricesTaxRate::factory(1)->create();
+        // MultipricesIncludesTax::factory(1)->create();
+        // Sub_Faq::factory(5)->create();
+        // ArrayOptions::factory(3)->create();
+        // Order::factory()->create();
+        // Line::factory()->create();
+        // LineOptions::factory()->create();
+        Task::factory(5)->create();
     }
 }

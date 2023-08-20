@@ -44,7 +44,7 @@ class CategoryController extends Controller
                 $producets[$i]->multiprices;
                 $producets[$i]['price']=(String)$producets[$i]['price'];
                 $producets[$i]['priceMin']=(String)$producets[$i]['priceMin'];
-                $producets[$i]['priceIncludesTax']=(String)$producets[$i]['priceIncludesTax'];
+                $producets[$i]['priceIcludesTax']=(String)$producets[$i]['priceIncludesTax'];
                 $producets[$i]['multipricesIncludesTax']=$producets[$i]->multipricesIncludesTax;
                 $producets[$i]['multipricesIncludesTax']["1"]=(String)$producets[$i]['multipricesIncludesTax']['first'];
                 $producets[$i]['multipricesIncludesTax']["2"]=(String)$producets[$i]['multipricesIncludesTax']['first'];
@@ -67,5 +67,5 @@ class CategoryController extends Controller
 
     }
 
-    
+
 }

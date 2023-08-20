@@ -7,7 +7,7 @@ use App\Http\Controllers\Api\FaqController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\ContactsController;
-
+use App\Http\Controllers\Api\ServicesController;
 use App\Http\Controllers\Api\StripeController;
 use App\Http\Controllers\Api\TrickestController;
 
@@ -30,17 +30,23 @@ Route::group(['prefix'=>"categories"],function (){
     Route::get('/{faqs_id}',[FaqController::class,'getFaqsChild']);
 });
 
-Route::get('productsByCategoryId/{category_id}',[CategoryController::class,'getProductByCategory']);
+Route::get('categoires/easerFaqs',[FaqController::class,'index']);
 
+//----- product and services
+Route::get('productsByCategoryId/{category_id}',[CategoryController::class,'getProductByCategory']);
+Route::get('serviceDetails/{proudect_id}',[ServicesController::class,'getProductWithTasks']);
+
+//----- employe and help
 Route::post('/tickets/becomeAnEmployee',[TrickestController::class,'add']);
 
-
+//----- notifications
 Route::get('notification',[Notifiction::class,'index']);
 Route::get('notification/send/{id}',[Notifiction::class,'send']);
 
 
-
+//------------<<Contacts Route >>>
 Route::get('contacts',[ContactsController::class,'index'])->middleware('auth:api');
+Route::delete('contacts/{id}',[ContactsController::class,'delete'])->middleware('auth:api');
 Route::post('contact',[ContactsController::class,'add'])->middleware('auth:api');
 
 
@@ -52,6 +58,8 @@ Route::group(['prefix'=>'order','middleware'=>'auth:api'] ,function ()  {
 
     Route::get('upcomming',[OrderController::class , 'upcomming']);
 
+    Route::get('/easer/upcomming',[OrderController::class , 'upcomming']);
+
     Route::post('create/service',[OrderController::class , 'CreateService']);
 
     Route::post('rating/{orderId}/{lineId}',[OrderController::class , 'rating']);
@@ -61,6 +69,10 @@ Route::group(['prefix'=>'order','middleware'=>'auth:api'] ,function ()  {
     Route::post('save/service',[OrderController::class , 'saveService']);
 
     Route::post('create/subscription',[OrderController::class , 'subscription']);
+
+    Route::post('compliment',[OrderController::class , 'complimentOrder']);
+
+    Route::post('report',[OrderController::class , 'doOrder']);
 
 });
 

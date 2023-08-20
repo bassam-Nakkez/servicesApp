@@ -16,6 +16,14 @@ class MultipricesTaxRate extends Model
         "second"
     ];
 
+    protected $hidden = [
+        "first",
+        "second",
+        "productID",
+        "created_at",
+         "updated_at"
+    ];
+
     public function product()
     {
         return $this->belongsTo(Product::class, 'productID');

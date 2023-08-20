@@ -13,7 +13,16 @@ class Multiprice extends Model
     protected $fillable =
      [
         "first",
-        "second"
+        "second",
+
+    ];
+
+    protected $hidden = [
+        "first",
+        "second",
+        "productID",
+        "created_at",
+         "updated_at"
     ];
 
     public function product()

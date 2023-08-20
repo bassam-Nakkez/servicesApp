@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->id('taskID');
             $table->string('label')->nullable();
-            $table->string('optionsIdtasks')->nullable();
+            $table->string('description')->nullable();
             $table->string('color')->nullable();
             $table->unsignedBigInteger('fk_parent')->nullable();
             $table->foreign('fk_parent')->references('productID')->on('products');

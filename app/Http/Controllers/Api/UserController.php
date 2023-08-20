@@ -62,8 +62,9 @@ class UserController extends Controller
                 $user[0]['subscriptionType']=1;
                 $user[0]['urssafMember']=false;
                 $user[0]['clientId']="";
+                if($user[0]['socid']==null){
                 $user[0]['socid']=(String)$user[0]->userID;
-
+                }
                 if(isNull($user[0]['photo']))
                 $user[0]['photo']="";
                 else
@@ -82,7 +83,7 @@ class UserController extends Controller
                 return parent::sendRespons(['result'=>$user[0]
                 ],"User Enterted",201);
             }
-            return parent::sendError("Not Found: User not found",null);
+            return parent::sendError(["result"=>"Not Found: User not found"],null);
         } catch (\Throwable $th) {
             return parent::sendError('error in DB UserController class line 86',$th->getMessage(),500);
         }
@@ -91,7 +92,8 @@ class UserController extends Controller
     public function getUser(){
         try {
             $user=Auth::user();
-            $user['lastname']=$user['lastName'];
+            $user['firstname']=$user['firstName'];
+            $user['user_mobile']=$user['phone'];
             $user['birth']="5000";
             return parent::sendRespons(["result"=>Auth::user()],"The User is Register succesfully",200);
 

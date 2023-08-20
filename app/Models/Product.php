@@ -58,6 +58,14 @@ class Product extends Model
         return $this->hasOne(MultipricesTaxRate::class,'productID','productID');
     }
 
-
+    /**
+     * Get all of the tasks for the Product
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tasks()
+    {
+        return $this->hasMany(Task::class, 'fk_parent', 'productID');
+    }
 
 }

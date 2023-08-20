@@ -13,7 +13,7 @@ class Task extends Model
     protected $fillable =
      [
         'label',
-        'optionsIdtasks',
+        'description',
         'color' ,
         'fk_parent',
 
