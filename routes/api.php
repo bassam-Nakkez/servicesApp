@@ -51,7 +51,7 @@ Route::post('contact',[ContactsController::class,'add'])->middleware('auth:api')
 
 
 
-//----------- <<< Order Route  >>>>
+//----------- <<< Order Route  >>>>--------
 
 Route::group(['prefix'=>'order','middleware'=>'auth:api'] ,function ()  {
     Route::get('history',[OrderController::class , 'history']);
@@ -80,8 +80,8 @@ Route::group(['prefix'=>'order','middleware'=>'auth:api'] ,function ()  {
 
 
 
+//----------- <<< payment Routes  >>>>-------
 
-///////////// payment Routes
 
 Route::post('/payments/stripe/create', [ StripeController::class, 'StripePayment']);
 Route::post('/payments/stripe/confirm', [StripeController::class, 'confirmPayment']);
