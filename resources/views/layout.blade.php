@@ -162,7 +162,7 @@
             <a href="#" class="noti-dot"><i class="la la-user"></i> <span> Users </span> <span class="menu-arrow"></span></a>
             <ul style="display: none;">
               <li><a href="employees.html">Service Provider </a></li>
-              <li><a href="clients-list.html">Customers</a></li>
+              <li><a href="{{route('clinte.index')}}">Customers</a></li>
             </ul>
           </li>
           <li class="submenu">

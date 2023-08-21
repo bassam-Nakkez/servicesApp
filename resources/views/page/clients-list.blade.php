@@ -42,7 +42,7 @@
                     </div>
 					<!-- /Search Filter -->
 
-					<div class="row">
+                    <div class="row">
 						<div class="col-md-12">
 							<div class="table-responsive">
 								<table class="table table-striped custom-table datatable">
@@ -58,24 +58,30 @@
 										</tr>
 									</thead>
 									<tbody>
+
+
+                                        @foreach ($users as $user)
+
 										<tr>
 											<td>
+
+
 												<h2 class="table-avatar">
-													<a  class="avatar"><img alt="" src="assets/img/profiles/avatar-28.jpg"></a>
-													<a >Soso sy</a>
+													<a  class="avatar"><img alt="" src={{$user->photo}}></a>
+													<a >{{$user->firstNamec .' '.$user->lastName}}</a>
 												</h2>
 											</td>
-											<td>CU-0001</td>
-											<td>Sososy2134@gmail.com</td>
-											<td>9876543210</td>
-											<td>1 Jan 2023</td>
+											<td>{{$user->userID}}</td>
+											<td>{{$user->email}}</td>
+											<td>{{$user->phone}}</td>
+											<td>{{$user->created_at}}</td>
 											<td>
 												<div class="col-md-10">
 													<div class="onoffswitch">
 
 
-														<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch_hra" data-toggle="modal" data-target="#Block-User">
-														<label class="onoffswitch-label" for="switch_hra">
+														<input checked={{!$user->isActive}} type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id={{$user->userID}}  data-toggle="modal" data-target="#Block-User " >
+														<label class="onoffswitch-label" for={{$user->userID}}>
 															<span class="onoffswitch-inner"></span>
 															<span class="onoffswitch-switch"></span>
 														</label>
@@ -94,73 +100,9 @@
 												</div>
 											</td>
 										</tr>
-										<tr>
-											<td>
-												<h2 class="table-avatar">
-													<a class="avatar"><img alt="" src="assets/img/profiles/avatar-25.jpg"></a>
-													<a >Abd alkhader </a>
-												</h2>
-											</td>
-											<td>CU-0002</td>
-											<td>Abdalkhader232@gmail.com</td>
-											<td>009876543210</td>
-											<td>18 Mar 2023</td>
-											<td>
-												<div class="col-md-10">
-													<div class="onoffswitch">
-														<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch_hra" data-toggle="modal" data-target="#Block-User">
-														<label class="onoffswitch-label" for="switch_hra">
-															<span class="onoffswitch-inner"></span>
-															<span class="onoffswitch-switch"></span>
-														</label>
-													</div>
-												</div>
-											</td>
 
-											<td class="text-right">
-												<div class="dropdown dropdown-action">
-													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-													<div class="dropdown-menu dropdown-menu-right">
-														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-													</div>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<h2 class="table-avatar">
-													<a class="avatar"><img alt="" src="assets/img/profiles/avatar-29.jpg"></a>
-													<a >Saly sy </a>
-												</h2>
-											</td>
-											<td>CU-0003</td>
-											<td>Salysy231@gmail.com</td>
-											<td>09876543210</td>
-											<td>1 Apr 2023</td>
-											<td>
-												<div class="col-md-10">
-													<div class="onoffswitch">
+                                        @endforeach
 
-
-														<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch_hra" data-toggle="modal" data-target="#Block-User">
-														<label class="onoffswitch-label" for="switch_hra">
-															<span class="onoffswitch-inner"></span>
-															<span class="onoffswitch-switch"></span>
-														</label>
-													</div>
-												</div>
-
-
-											</td>
-											<td class="text-right">
-												<div class="dropdown dropdown-action">
-													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-													<div class="dropdown-menu dropdown-menu-right">
-														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-													</div>
-												</div>
-											</td>
-										</tr>
 
 									</tbody>
 								</table>
@@ -209,7 +151,7 @@
 									<div class="modal-btn delete-action">
 										<div class="row">
 											<div class="col-6">
-												<a href="javascript:void(0);" class="btn btn-primary continue-btn">Block</a>
+												<a href="{{route('clinte.block') }}" class="btn btn-primary continue-btn">Block</a>
 											</div>
 											<div class="col-6">
 												<a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Cancel</a>
@@ -239,30 +181,30 @@
 		<!-- /Main Wrapper -->
 
 		<!-- jQuery -->
-        <script src="assets/js/jquery-3.5.1.min.js"></script>
+        <script src="{{asset('assets/js/jquery-3.5.1.min.js')}}"></script>
 
 		<!-- Bootstrap Core JS -->
-        <script src="assets/js/popper.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="{{asset('assets/js/popper.min.js')}}"></script>
+        <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
 
 		<!-- Slimscroll JS -->
-		<script src="assets/js/jquery.slimscroll.min.js"></script>
+		<script src="{{asset('assets/js/jquery.slimscroll.min.js')}}"></script>
 
 		<!-- Select2 JS -->
-		<script src="assets/js/select2.min.js"></script>
+		<script src="{{asset('assets/js/select2.min.js')}}"></script>
 
 		<!-- Datetimepicker JS -->
-		<script src="assets/js/moment.min.js"></script>
-		<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+		<script src="{{asset('assets/js/moment.min.js')}}"></script>
+		<script src="{{asset('assets/js/bootstrap-datetimepicker.min.js')}}"></script>
 
 		<!-- Datatable JS -->
-		<script src="assets/js/jquery.dataTables.min.js"></script>
-		<script src="assets/js/dataTables.bootstrap4.min.js"></script>
+		<script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
+		<script src="{{asset('assets/js/dataTables.bootstrap4.min.js')}}"></script>
 
 		<!-- Summernote JS -->
-		<script src="assets/plugins/summernote/dist/summernote-bs4.min.js"></script>
+		<script src="{{asset('assets/plugins/summernote/dist/summernote-bs4.min.js')}}"></script>
 		<!-- Custom JS -->
-		<script src="assets/js/app.js"></script>
+		<script src="{{asset('assets/js/app.js')}}"></script>
 
     </body>
 </html>

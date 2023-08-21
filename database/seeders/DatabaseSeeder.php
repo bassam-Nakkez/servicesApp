@@ -14,11 +14,7 @@ use App\Models\MultipricesTaxRate;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Sub_Faq;
-<<<<<<< Updated upstream
-use App\Models\Task;
-=======
-use App\Models\User;
->>>>>>> Stashed changes
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -35,14 +31,10 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-<<<<<<< Updated upstream
-        // CategoryPhoto::factory(5)->create();
-        // Product::factory(5)->create();
-=======
+
         CategoryPhoto::factory(15)->create();
         // User::factory(15)->create();
-        Product::factory(8)->create();
->>>>>>> Stashed changes
+        // Product::factory(8)->create();
         // Multiprice::factory(1)->create();
         // MultipricesTaxRate::factory(1)->create();
         // MultipricesIncludesTax::factory(1)->create();
@@ -51,9 +43,6 @@ class DatabaseSeeder extends Seeder
         // Order::factory()->create();
         // Line::factory()->create();
         // LineOptions::factory()->create();
-<<<<<<< Updated upstream
-        Task::factory(5)->create();
-=======
->>>>>>> Stashed changes
+
     }
 }

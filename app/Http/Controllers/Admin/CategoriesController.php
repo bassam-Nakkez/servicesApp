@@ -15,6 +15,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
+        try{
         $categories = Category::all();
         if($categories)
         {
@@ -23,8 +24,10 @@ class CategoriesController extends Controller
         }
         else {
 
-           return view( 'page.categories' )->with('success',false);
-        }
+            return view( 'page.categories' )->with('success',false);
+         }
+    } catch(\Throwable $e){  return view( 'page.categories' )->with('success',false)->with('message',$e->getMessage());  }
+
     }
 
 
@@ -48,7 +51,7 @@ class CategoriesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Request $request)
+    public function edit(Request $request , $id)
     {
 
               // $request->validate([

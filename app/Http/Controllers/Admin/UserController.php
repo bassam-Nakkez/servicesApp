@@ -16,7 +16,7 @@ class UserController extends Controller
         $users = User::all();
         if($users)
         {
-            return view( 'page.clients-list', compact('$users' ) )->with('success',true);
+            return view( 'page.clients-list', compact('users' ) )->with('success',true);
 
         }
         else {
@@ -24,6 +24,14 @@ class UserController extends Controller
            return view( 'page.clients-list' )->with('success',false);
         }
     }
+
+
+    public function block()
+    {
+
+        
+    }
+
 
     /**
      * Show the form for creating a new resource.

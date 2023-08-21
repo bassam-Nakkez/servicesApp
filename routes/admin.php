@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoriesController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
@@ -24,7 +26,13 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('categories')->group(function () {
 
     Route::get('index',[CategoriesController::class ,'index'])->name('categories.index');
-    Route::post('edit',[CategoriesController::class ,'edit'])->name('categories.edit');
+    Route::post('edit/{id}',[CategoriesController::class ,'edit'])->name('categories.edit');
+
+    Route::get('test',
+    function(){return view('page.edit');
+    });
+
+
 });
 
 //--------------<<< clients Routes >>>>---------
@@ -32,9 +40,25 @@ Route::prefix('categories')->group(function () {
 Route::prefix('clients')->group(function () {
 
     Route::get('index',[UserController::class ,'index'])->name('clinte.index');
-    Route::get('block',[UserController::class ,'block'])->name('clinte.edit');
+    Route::get('block',[UserController::class ,'block'])->name('clinte.block');
 });
 
+
+// --------------<<< order Routes >>>>---------
+
+Route::prefix('order')->group(function () {
+    Route::get('all', [OrderController::class , "allTask"] );
+
+});
+
+// --------------<<< dashboard Routes >>>>---------
+
+Route::prefix('dashboard')->group(function () {
+    Route::get('view', [DashboardController::class , "view"] );
+    // Route::get('users', [DashboardController::class , "countUsers"] );
+    // Route::get('serviceproviders', [DashboardController::class , "countServiceProvider"] );
+
+});
 
 
 
@@ -51,11 +75,7 @@ Route::prefix('clients')->group(function () {
 // })->name('activities');
 
 
-//--------------<<< order Routes >>>>---------
 
-// Route::get('/order', function () {
-//     return view('order');
-// })->name('order');
 
 
 
