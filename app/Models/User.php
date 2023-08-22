@@ -21,6 +21,7 @@ class User extends Authenticatable
         'firstName',
         'lastName',
         'token',
+        'isActive',
         'email',
         'gender',
         'birth',
