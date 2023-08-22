@@ -93,8 +93,8 @@ class UserController extends Controller
         try {
             $user=Auth::user();
             $user['firstname']=$user['firstName'];
+            $user['lastname']=$user['lastName'];
             $user['user_mobile']=$user['phone'];
-            $user['birth']="5000";
             return parent::sendRespons(["result"=>Auth::user()],"The User is Register succesfully",200);
 
         } catch (\Throwable $th) {
