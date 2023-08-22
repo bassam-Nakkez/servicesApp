@@ -61,6 +61,16 @@ class Line extends Model
     }
 
 
+        /**
+     * Get the product that owns the Line
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'fk_product', 'productID');
+    }
+
 
 
 

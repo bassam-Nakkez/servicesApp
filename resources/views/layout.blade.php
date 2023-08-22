@@ -14,7 +14,7 @@
 
 		<!-- Favicon -->
 		<link rel="shortcut icon" type="image/x-icon" href="assets/img/logo.png">
-				
+
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 
@@ -38,7 +38,7 @@
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="/assets/css/style.css">
 
-		
+
     </head>
     <body>
 		<!-- Main Wrapper -->
@@ -155,72 +155,72 @@
 					<div class="sidebar-inner slimscroll">
 						<div id="sidebar-menu" class="sidebar-menu">
 							<ul>
-								<li class="menu-title"> 
+								<li class="menu-title">
 									<span>SPS</span>
 								</li>
 								<li>
 									<a href="index.html"><i class="la la-dashboard"></i> <span> Dashboard</span></a>
 								</li>
-									
+
 								<li class="submenu">
 									<a href="#" class="noti-dot"><i class="la la-user"></i> <span> Users </span> <span class="menu-arrow"></span></a>
 									<ul style="display: none;">
 										<li><a  href="employees.html">Service Provider </a></li>
 										<li><a href="clients-list.html">Customers</a></li>
-									
+
 									</ul>
 								</li>
-								
+
 								<li class="submenu">
 									<a href="#"><i class="la la-gears"></i> <span> Categories Services </span> <span class="menu-arrow"></span></a>
 									<ul style="display: none;">
 										<li ><a href="{{route('categories.index')}}">Categories</a></li>
 										<li><a href="services.html">Services</a></li>
-										
+
 									</ul>
 								</li>
-								<li> 
-									<a href="order.html"><i class="la la-cart-arrow-down"></i> <span>Order</span></a>
+								<li>
+									<a href="{{ route('showOrders') }}"><i class="la la-cart-arrow-down"></i> <span>Order</span></a>
 								</li>
-								
-								<li> 
+
+								<li>
 									<a href="{{route('showSalary')}}"><i class="la la-money"></i> <span>Salary</span></a>
 								</li>
-								<li> 
+								<li>
 									<a href="Employment.html"><i class="la la-briefcase"></i> <span>Employment Requests</span></a>
 								</li>
-								<li> 
+								<li>
 									<a  href="report.html"><i class="la la-pie-chart"></i> <span>Reports</span></a>
 								</li>
-								<li> 
+								<li>
 									<a href="activities.html"><i class="la la-bell"></i> <span>Activities</span></a>
 								</li>
-								<li> 
+								<li>
 									<a href="company_info.html"><i class="la la-cog"></i> <span>Company Settings</span></a>
 								</li>
 								<li class="submenu">
 									<a href="#"><i class="la la-question"></i> <span> Help </span> <span class="menu-arrow"></span></a>
 									<ul style="display: none;">
-									
+
 										<li><a href={{route('getAllFaqs')}}> FAQ </a></li>
 										<li><a href="terms.html"> Terms </a></li>
 										<li><a href="privacy-policy.html"> Privacy Policy </a></li>
-									
+
 									</ul>
 								</li>
 							</ul>
 						</div>
 					</div>
 				</div>
-			
+
 			<!-- /Page Wrapper -->
-			
+
 
     	 @yield('content');
 
 	<!-- jQuery -->
 	<script src="/assets/js/jquery-3.5.1.min.js"></script>
-				
+
 	<!-- Bootstrap Core JS -->
 	<script src="/assets/js/popper.min.js"></script>
 	<script src="/assets/js/bootstrap.min.js"></script>
@@ -244,7 +244,7 @@
 	<!-- Custom JS -->
 	<script src="/assets/js/app.js"></script>
 
-			
+
 
 
     </body>
@@ -287,7 +287,7 @@
 		}
 
 	</script> --}}
-{{-- 
+{{--
 	<div id="edit_category" class="modal custom-modal fade" role="dialog">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
@@ -298,21 +298,21 @@
 						<input type="hidden" name="Category_id" id="Category_id">
 						<!-- ... -->
 						<div class="form-group">
-							
+
 							<img src="assets/img/profiles/Profile1.jpg" alt="Profile" id="edit-profile-image" style="height:150px; width:150px; border-radius: 5px; border:2px solid white; ">
 							<input type="file" id="edit-image-file" style="display:none">
-						
+
 					</div>
 					<div class="form-group">
 						<label>Category Name </label>
 						<input class="form-control" type="text" value="Cleanings">
 					</div>
-				
+
 					<div class="row">
 						<div class="col-md-6">
 							<label for="color-picker">Choose color</label>
 							<input class="form-control" type="color" id="edit-color-picker" value="#ffffff">
-							
+
 						</div>
 						<div class="col-md-6">
 							<label for="color-value"> Color Value </label>

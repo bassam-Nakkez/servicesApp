@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\Faqs;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\SalaryController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Routing\RouteGroup;
@@ -28,7 +29,7 @@ Route::prefix('categories')->group(function () {
     Route::get('index',[CategoriesController::class ,'index'])->name('categories.index');
     Route::post('edit',[CategoriesController::class ,'edit'])->name('categories.edit');
     Route::get('delete',[CategoriesController::class , 'destroy'])->name('categories.delete');
-    
+
 });
 
 //--------------<<< clients Routes >>>>---------
@@ -53,7 +54,7 @@ Route::prefix('salary')->group(function () {
     Route::get('show/{easer_id}',[SalaryController::class ,'show'])->name('showSalaryDetails');
     Route::post('store',[SalaryController::class,'store'])->name('addSalary');
     Route::get('delete',[SalaryController::class , 'destroy'])->name('');
-    
+
 });
 
 
@@ -74,6 +75,13 @@ Route::prefix('salary')->group(function () {
 // Route::get('/order', function () {
 //     return view('order');
 // })->name('order');
+
+
+Route::prefix('order')->group(function () {
+    Route::get('all', [OrderController::class , "allTask"] )->name('showOrders');
+    Route::get('showOrderDetails/{order_id}', [OrderController::class , "show"] )->name('showOrderDetails');
+
+});
 
 
 

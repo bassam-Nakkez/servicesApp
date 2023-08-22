@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('report_photos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('reportID');
             $table->string('photo');
-            $table->foreign('reportID')->references('reportID')->on('reports');
+            $table->foreignId('doOrderID')->references('doOrderID')->on('do_orders')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
