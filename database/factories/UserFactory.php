@@ -31,6 +31,9 @@ class UserFactory extends Factory
             'isActive'=>true,
             'phone'=>fake()->phoneNumber(),
             'login'=>fake()->text(15),
+            "created_at"=>fake()->date(),
+            'socid'=>fake()->boolean(),
+
 
 
         ];

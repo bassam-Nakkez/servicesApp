@@ -156,7 +156,7 @@
             <span>SPS</span>
           </li>
           <li>
-            <a href="index.html"><i class="la la-dashboard"></i> <span> Dashboard</span></a>
+            <a href="{{route('dashboard')}}"><i class="la la-dashboard"></i> <span> Dashboard</span></a>
           </li>
           <li class="submenu">
             <a href="#" class="noti-dot"><i class="la la-user"></i> <span> Users </span> <span class="menu-arrow"></span></a>
@@ -209,7 +209,7 @@
 
 				<!-- Page Content -->
 
-                           @yield('content');
+                           @yield('content')
 
 
 				<!-- /Page Content -->

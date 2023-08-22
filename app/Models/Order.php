@@ -36,7 +36,9 @@ class Order extends Model
         'multicurrency_total_ht',
         'subprice',
         'UserID',
-        'employID'
+        'employID',
+        "created_at",
+
     ];
 
 
