@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Line extends Model
 {
@@ -36,6 +37,17 @@ class Line extends Model
 
     ];
 
+
+
+    /**
+     * Get the report associated with the Line
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function report(): HasOne
+    {
+        return $this->hasOne(HelpForm::class, 'lineID');
+    }
 
 
     /**

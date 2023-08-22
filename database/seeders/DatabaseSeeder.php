@@ -13,8 +13,11 @@ use App\Models\MultipricesIncludesTax;
 use App\Models\MultipricesTaxRate;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\Report;
+use App\Models\ReportPhoto;
 use App\Models\Sub_Faq;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -32,17 +35,19 @@ class DatabaseSeeder extends Seeder
         // ]);
 
 
-        CategoryPhoto::factory(15)->create();
-        // User::factory(15)->create();
-        // Product::factory(8)->create();
+        // CategoryPhoto::factory(15)->create();
+        // User::factory(560)->create();
+        // Product::factory(25)->create();
         // Multiprice::factory(1)->create();
         // MultipricesTaxRate::factory(1)->create();
         // MultipricesIncludesTax::factory(1)->create();
         // Sub_Faq::factory(5)->create();
         // ArrayOptions::factory(3)->create();
-        // Order::factory()->create();
-        // Line::factory()->create();
+        // Order::factory(70)->create();
+        // Line::factory(180)->create();
         // LineOptions::factory()->create();
+        Report::factory(19)->create();
+        ReportPhoto::factory(50)->create();
 
     }
 }

@@ -19,7 +19,7 @@ class LineFactory extends Factory
     public function definition(): array
     {
         return [
-            'orderID'=>1,
+            'orderID'=>fake()->numberBetween(1,20),
             'qty'=>fake()->title(),
             'dateStart'=>fake()->title(),
             'dateEnd'=>fake()->title(),
@@ -37,7 +37,7 @@ class LineFactory extends Factory
             'total_ttc'=>fake()->title(),
             'total_localtax1'=>fake()->title(),
             'total_localtax2'=>fake()->title(),
-            'fk_product'=>1
+            'fk_product'=>fake()->numberBetween(1 ,10)
         ];
     }
 }

@@ -11,14 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('help_forms', function (Blueprint $table) {
-            $table->id();
-            $table->string('fkSoc');
+        Schema::create('reports', function (Blueprint $table) {
+            $table->id('reportID');
+            $table->unsignedBigInteger('empID');
+            $table->foreign('empID')->references('userID')->on('users');
             $table->string('subject')->nullable();
             $table->string('message')->nullable();
             $table->string('typeCode')->nullable();
-            $table->string('categoryCode')->nullable();
+            // $table->unsignedBigInteger('categoryID');
+            // $table->foreign('categoryID')->references('categoryID')->on('categories');
             $table->string('severityCode')->nullable();
+            $table->unsignedBigInteger('lineID');
+            $table->foreign('lineID')->references('lineID')->on('lines');
             $table->timestamps();
         });
     }

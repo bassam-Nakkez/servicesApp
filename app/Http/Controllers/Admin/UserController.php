@@ -13,6 +13,10 @@ class UserController extends Controller
      */
     public function index()
     {
+        // try
+        // {
+
+        // }catch(){}
         $users = User::all();
         if($users)
         {
@@ -29,7 +33,7 @@ class UserController extends Controller
     public function block()
     {
 
-        
+
     }
 
 

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\RebortController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
@@ -55,12 +56,21 @@ Route::prefix('order')->group(function () {
 // --------------<<< dashboard Routes >>>>---------
 
 Route::prefix('dashboard')->group(function () {
-    Route::get('view', [DashboardController::class , "view"] );
+    Route::get('view', [DashboardController::class , "view"] )->name('dashboard');
     // Route::get('users', [DashboardController::class , "countUsers"] );
     // Route::get('serviceproviders', [DashboardController::class , "countServiceProvider"] );
-
 });
 
+// --------------<<< report Routes >>>>---------
+
+Route::prefix('report')->group(function () {
+    Route::get('index', [RebortController::class , "index"] )->name('report.index');
+    Route::get('view', [RebortController::class , "view"] )->name('report.view');
+});
+
+// Route::get('/report', function () {
+//     return view('report');
+// })->name('report');
 
 
 
@@ -108,9 +118,7 @@ Route::prefix('dashboard')->group(function () {
 //     return view('report-view');
 // })->name('report-view');
 
-// Route::get('/report', function () {
-//     return view('report');
-// })->name('report');
+
 
 // Route::get('/services', function () {
 //     return view('services');
