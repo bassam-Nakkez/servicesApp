@@ -3,6 +3,7 @@
 
 @section('content');
 
+     <div class="page-wrapper">
 				<!-- Page Content -->
                 <div class="content container-fluid">
 
@@ -23,52 +24,33 @@
 						</div>
 					</div>
 					<!-- /Page Header -->
-
+					@foreach ($faqs as $faq)
 				    <h4 class="card-title">
-							<div class="category-card" data-category="category1">
-								Users
-							</div>
-							<div class="category-card" data-category="category2">
-								Services
-							</div>
-							<div class="category-card" data-category="category3">
-								Prices,Payments and billing
-							</div>
+						<div class="category-card" data-category={{$faq->faqID}}>
+							{{$faq->label}}
+						</div>
 					</h4>
 					<div class="faq-card" style="display:none;">
-							<div class="card"data-category="category1">
+							<div class="card"data-category={{$faq->faqID}}>
+								@foreach ($faq->subfaq as $item)
 								<div class="card-header">
 									<h4 class="card-title">
-										<a class="collapsed" data-toggle="collapse" href="#collapseOne"> What is an Easer?</a>
+										<a class="collapsed" data-toggle="collapse" href="#subfaq{{$item->subFaqID}}">{{$item->label}} </a>
 									</h4>
 								</div>
-								<div id="collapseOne" class="card-collapse collapse">
+								<div id="subfaq{{$item->subFaqID}}" class="card-collapse collapse">
 									<div class="card-body">
-										<p>	At Facilitateurdevies.com, the speakers are called
-											"Easers" understand "facilitators". He is the trusted
-											professional coming to your home to carry out various
-											missions and make your life easier.
+										<p>	
+											{{$item->description}}
 										</p>
 
 									</div>
 								</div>
+								@endforeach
+								
 							</div>
-
-
-							<div class="card" data-category="category1">
-								<div class="card-header">
-										<h4 class="card-title">
-											<a class="collapsed" data-toggle="collapse" href="#collapseTwo">What is the difference between an Easer Green, aEaser Clean and a Major?</a>
-										</h4>
-									</div>
-									<div id="collapseTwo" class="card-collapse collapse">
-										<div class="card-body">
-											<!-- <p> sadasdqwd.</p> -->
-										</div>
-									</div>
-						    </div>
-
 					</div>
+					@endforeach
                 </div>
 				<!-- /Page Content -->
 				<div id="add_FAQ" class="modal custom-modal fade" role="dialog">
@@ -81,20 +63,24 @@
 								</button>
 							</div>
 							<div class="modal-body">
-								<form>
-
+								<form action="{{route('addFaq')}}" method="post">
+									@method('POST')
+									@csrf
 									<div class="form-group">
 										<label>Topic </label>
-										<input class="form-control" type="text">
+										<input class="form-control" type="text" name="label">
+									</div>
+									{{-- <div class="form-group">
+										<label>Color </label>
+										<input class="form-control" type="text" name="color">
 									</div>
 									<div class="form-group">
-										<label>Question </label>
-										<input class="form-control" type="text">
-									</div>
-									<div class="form-group">
-										<label>Descrption</label>
+										<input class="form-control" type="text" name="color">
+									</div> --}}
+									{{-- <div class="form-group">
+										<label>Color</label>
 										<textarea rows="6" class="form-control" placeholder="Enter your message here"></textarea>
-									</div>
+									</div> --}}
 
 
 
@@ -109,10 +95,10 @@
 						</div>
 					</div>
 				</div>
-            </div>
+     </div>
 			<!-- /Page Wrapper -->
 
-        </div>
+      
 		<!-- /Main Wrapper -->
 
 

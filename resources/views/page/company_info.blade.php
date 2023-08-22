@@ -1,6 +1,4 @@
-
-@extends('layout')
-@section('content')
+@section('content');
 
 
 				<!-- Page Content -->

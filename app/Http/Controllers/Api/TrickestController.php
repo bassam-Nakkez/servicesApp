@@ -11,7 +11,7 @@ class TrickestController extends Controller
 {
     public function add(HelpAdd $request) {
         try {
-            $trick = HelpForm::query()->create($request->all());
+            $trick=HelpForm::query()->create($request->all());
             return parent::sendRespons(["result"=>$trick->id],"POST TICKETS",201);
         } catch (\Throwable $th) {
             return parent::sendError(['error in DB TrickestController line 17'],$th->getMessage(),404);

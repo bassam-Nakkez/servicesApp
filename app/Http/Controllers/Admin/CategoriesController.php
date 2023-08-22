@@ -15,7 +15,6 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        try{
         $categories = Category::all();
         if($categories)
         {
@@ -24,11 +23,34 @@ class CategoriesController extends Controller
         }
         else {
 
-            return view( 'page.categories' )->with('success',false);
-         }
-    } catch(\Throwable $e){  return view( 'page.categories' )->with('success',false)->with('message',$e->getMessage());  }
-
+           return view( 'page.categories' )->with('success',false);
+        }
     }
+    // public function edit(Request $request)
+    // {
+    //     try {
+    //         $category = Category::find($request->Category_id);
+    //         $category->update($request->all());
+    //         return view('page.categories', ['categories' => Category::all()]);
+    //     } catch (\Throwable $th) {
+    //         return response()->json(['error' => $th->getMessage()], 500);
+    //     }
+    // }
+    public function edit(Request $request)
+{
+    try {
+        return $request;
+        $category = Category::find($request->Category_id);
+        if ($category) {
+            $category->update($request->all());
+            return view('page.categories', ['categories' => Category::all()]);
+        } else {
+            return response()->json(['error' => 'Category not found'], 404);
+        }
+    } catch (\Throwable $th) {
+        return response()->json(['error' => $th->getMessage()], 500);
+    }
+}
 
 
 
@@ -51,41 +73,56 @@ class CategoriesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Request $request , $id)
-    {
+ /* test*/
+// public function edit(Request $request)
+// {
+//     try {
+//         $category = Category::find($request->Category_id);
+//         $category->update($request->all());
+//         return response()->json(['message' => 'Category updated successfully']);
+//     } catch (\Throwable $th) {
+//         return response()->json(['error' => $th->getMessage()], 500);
+//     }
+// }
 
-              // $request->validate([
-        //     ''=>'required',
-        //     ''=>'required',
-        //     ''=>'required',
-        // ]);
+// public function edit(Request $request)
+// {
+//     try {
+//         $category = Category::find($request->Category_id);
+//         $category->update($request->all());
+//         return view('page.categories', ['categories' => Category::all()]);
+//     } catch (\Throwable $th) {
+//         return response()->json(['error' => $th->getMessage()], 500);
+//     }
+// }
 
-        try {
-            $categories = Category::where('CategoryID','=',$request['edit-id'])->update($request->all());
-            return redirect()->back()->with($categories);
-        } catch (\Throwable $th) {
-            return $th->getMessage();
-        }
 
-        // return redirect()->route('categories.index');
-    }
+
+
 
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    
+  
+  
+    public function destroy(Request $request)
     {
 
-     $category = Category::where('CategoryID','=',$id);
-
-     if ($category) {
+    try{
+       
+        $category = Category::find(request('Category_id'));
         $category->delete();
-      return  $this->sendRespons( $category ,'category deleted successfully');
-    }
-    else{
+        return redirect()->route('categories.index') ->with( 'message' ,'category deleted successfully');
 
-        return redirect()->back()->with('message','can\'t delete category');
-        }
+    } catch( \Throwable $e)
+    {
+        return redirect()->route('categories.index') ->with( 'message' ,'category deleted successfully');
+
     }
+
+    }
+
+
 }

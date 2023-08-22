@@ -11,7 +11,7 @@
 							<div class="col-sm-12">
 								<h3 class="page-title">Reports</h3>
 								<ul class="breadcrumb">
-									<li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
+									<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
 									<li class="breadcrumb-item active"> Reports</li>
 								</ul>
 							</div>
@@ -72,28 +72,21 @@
 										</thead>
 										<tbody>
 											<tr>
-                                             @if ( $success)
-                                             @foreach ($reports as $report )
-
-												<td>{{$i++}}</td>
-												<td>{{$report->empID}}</td>
-												<td>{{$report->reportID}}</td>
-												<td>{{$report->subject}}</td>
-												<td>{{$report['service']}}</td>
-												<td>{{$report->subject}}</td>
+												<td>1</td>
+												<td>Abd alkhader</td>
+												<td>CU-0002</td>
+												<td>Service performed</td>
+												<td>Home Cleanning</td>
+												<td>17 Mar 2019</td>
 											</tr>
-                                            @endforeach
-
-                                            @endif
-
-											{{-- <tr>
+											<tr>
 												<td>2</td>
 												<td>Soso sy</td>
 												<td>CU-0001</td>
 												<td>My Service provider</td>
 												<td>Baby siter</td>
 												<td>20 Mar 2019</td>
-											</tr> --}}
+											</tr>
 										</tbody>
 									</table>
 								</div>
@@ -103,4 +96,38 @@
                 </div>
 				<!-- /Page Content -->
 
+            </div>
+			<!-- /Page Wrapper -->
+
+        </div>
+		<!-- /Main Wrapper -->
+
+		<!-- jQuery -->
+        <script src="assets/js/jquery-3.5.1.min.js"></script>
+
+		<!-- Bootstrap Core JS -->
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+
+		<!-- Slimscroll JS -->
+		<script src="assets/js/jquery.slimscroll.min.js"></script>
+
+		<!-- Select2 JS -->
+		<script src="assets/js/select2.min.js"></script>
+
+		<!-- Datetimepicker JS -->
+		<script src="assets/js/moment.min.js"></script>
+		<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+
+		<!-- Datatable JS -->
+		<script src="assets/js/jquery.dataTables.min.js"></script>
+		<script src="assets/js/dataTables.bootstrap4.min.js"></script>
+
+		<!-- Summernote JS -->
+		<script src="assets/plugins/summernote/dist/summernote-bs4.min.js"></script>
+		<!-- Custom JS -->
+		<script src="assets/js/app.js"></script>
+
+    </body>
+</html>
 @endsection

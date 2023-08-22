@@ -18,7 +18,15 @@ class Faq extends Model
         'description' ,
     ];
 
-    
+        /**
+     * Get all of the line for the Order
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function subfaq()
+    {
+        return $this->hasMany(Sub_Faq::class, 'faqID','faqID');
+    }
 
 
 }

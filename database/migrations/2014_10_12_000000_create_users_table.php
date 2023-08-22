@@ -37,7 +37,7 @@ return new class extends Migration
             $table->string('login');
             $table->string('datec')->nullable();
             $table->string('datem')->nullable();
-            $table->string('socid')->default(true);
+            $table->string('socid')->nullable();
             $table->string('user')->nullable();
             $table->integer('entity')->nullable();
             $table->integer('reset')->nullable();
@@ -51,7 +51,7 @@ return new class extends Migration
             $table->string('clientId')->nullable();
             $table->text('photo')->nullable();
             $table->text('API-KEY')->nullable();
-            $table->bigInteger('employID')->unique()->nullable();
+            $table->foreignId('categoryID')->references('categoryID')->on('categories');
             $table->timestamps();
         });
     }

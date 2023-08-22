@@ -51,8 +51,7 @@ class User extends Authenticatable
         'fk_user',
         "entity",
         "reset",
-        "API-KEY",
-        "created_at",
+        "API-KEY"
     ];
 
 
@@ -79,7 +78,16 @@ class User extends Authenticatable
      */
     public function order(): HasMany
     {
-        return $this->hasMany(Comment::class, 'userID');
+        return $this->hasMany(Order::class, 'userID');
+    }
+
+    public function category()
+    {
+        return $this->hasOne(Category::class, 'categoryID','categoryID');
+    }
+
+    public function salary()  {
+        return $this->hasOne(Salary::class,'userID','userID');
     }
 
 
