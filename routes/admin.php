@@ -1,16 +1,13 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoriesController;
-<<<<<<< Updated upstream
 use App\Http\Controllers\Admin\Faqs;
 use App\Http\Controllers\Admin\SalaryController;
-=======
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\RebortController;
 use App\Http\Controllers\Admin\ServiceProviderController;
->>>>>>> Stashed changes
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
@@ -36,7 +33,7 @@ Route::prefix('categories')->group(function () {
     Route::get('index',[CategoriesController::class ,'index'])->name('categories.index');
     Route::post('edit',[CategoriesController::class ,'edit'])->name('categories.edit');
     Route::get('delete',[CategoriesController::class , 'destroy'])->name('categories.delete');
-    
+
 });
 
 //--------------<<< clients Routes >>>>---------
@@ -44,14 +41,10 @@ Route::prefix('categories')->group(function () {
 Route::prefix('clients')->group(function () {
 
     Route::get('index',[UserController::class ,'index'])->name('clinte.index');
-<<<<<<< Updated upstream
-    Route::get('block',[UserController::class ,'block'])->name('clinte.edit');
-=======
     Route::get('block',[UserController::class ,'block'])->name('clinte.block');
     Route::get('search',[UserController::class ,'search'])->name('clinte.search');
 
 
->>>>>>> Stashed changes
 });
 
 
@@ -68,11 +61,9 @@ Route::prefix('salary')->group(function () {
     Route::get('show/{easer_id}',[SalaryController::class ,'show'])->name('showSalaryDetails');
     Route::post('store',[SalaryController::class,'store'])->name('addSalary');
     Route::get('delete',[SalaryController::class , 'destroy'])->name('');
-    
+
 });
 
-<<<<<<< Updated upstream
-=======
 // --------------<<< report Routes >>>>---------
 
 Route::prefix('report')->group(function () {
@@ -96,7 +87,6 @@ Route::prefix('serviceProvider')->group(function () {
 // })->name('report');
 
 
->>>>>>> Stashed changes
 
 
 //		<form action="{{ route('specific_route', ['user_id' => $user_id]) }}" method="POST" >

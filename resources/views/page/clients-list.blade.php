@@ -87,13 +87,9 @@
 												</div>
 
 
-<<<<<<< Updated upstream
-											</td>
-=======
 
 
                                         @foreach ($users as $user)
->>>>>>> Stashed changes
 
 											<td class="text-right">
 												<div class="dropdown dropdown-action">
@@ -162,12 +158,8 @@
 
 
 											</td>
-<<<<<<< Updated upstream
-											<td class="text-right">
-=======
 
 											{{-- <td class="text-right">
->>>>>>> Stashed changes
 												<div class="dropdown dropdown-action">
 													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 													<div class="dropdown-menu dropdown-menu-right">
@@ -177,11 +169,8 @@
 											</td>
 										</tr> --}}
 
-<<<<<<< Updated upstream
-=======
                                         @endforeach
 
->>>>>>> Stashed changes
 									</tbody>
 								</table>
 							</div>
@@ -252,41 +241,4 @@
 				<!-- /Block  Modal -->
 
 
-<<<<<<< Updated upstream
-            </div>
-			<!-- /Page Wrapper -->
-
-        </div>
-		<!-- /Main Wrapper -->
-
-		<!-- jQuery -->
-        <script src="assets/js/jquery-3.5.1.min.js"></script>
-
-		<!-- Bootstrap Core JS -->
-        <script src="assets/js/popper.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-
-		<!-- Slimscroll JS -->
-		<script src="assets/js/jquery.slimscroll.min.js"></script>
-
-		<!-- Select2 JS -->
-		<script src="assets/js/select2.min.js"></script>
-
-		<!-- Datetimepicker JS -->
-		<script src="assets/js/moment.min.js"></script>
-		<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
-
-		<!-- Datatable JS -->
-		<script src="assets/js/jquery.dataTables.min.js"></script>
-		<script src="assets/js/dataTables.bootstrap4.min.js"></script>
-
-		<!-- Summernote JS -->
-		<script src="assets/plugins/summernote/dist/summernote-bs4.min.js"></script>
-		<!-- Custom JS -->
-		<script src="assets/js/app.js"></script>
-
-    </body>
-</html>
-=======
->>>>>>> Stashed changes
 @endsection

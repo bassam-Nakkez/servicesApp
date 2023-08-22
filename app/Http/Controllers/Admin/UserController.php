@@ -13,18 +13,10 @@ class UserController extends Controller
      */
     public function index()
     {
-<<<<<<< Updated upstream
-        $users = User::all();
-        if($users)
-        {
-            return view( 'page.clients-list', compact('$users' ) )->with('success',true);
-
-=======
         try
         {
             $users = User::all();
             return view( 'page.clients-list', compact('users' ) )->with('success',true);
->>>>>>> Stashed changes
         }
 
         catch(\Throwable $e)
@@ -32,14 +24,6 @@ class UserController extends Controller
             return $e->getMessage();
         }
 
-<<<<<<< Updated upstream
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-=======
     }
 
     public function search(Request $request)
@@ -57,7 +41,6 @@ class UserController extends Controller
         }
 
        return view( 'page.clients-list', compact('users' ) )->with('success',true);
->>>>>>> Stashed changes
     }
 
 

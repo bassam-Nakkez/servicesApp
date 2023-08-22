@@ -39,7 +39,6 @@ class CategoriesController extends Controller
     public function edit(Request $request)
 {
     try {
-        return $request;
         $category = Category::find($request->Category_id);
         if ($category) {
             $category->update($request->all());
@@ -104,14 +103,14 @@ class CategoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    
-  
-  
+
+
+
     public function destroy(Request $request)
     {
 
     try{
-       
+
         $category = Category::find(request('Category_id'));
         $category->delete();
         return redirect()->route('categories.index') ->with( 'message' ,'category deleted successfully');

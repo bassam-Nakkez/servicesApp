@@ -18,10 +18,6 @@ class HelpForm extends Model
         'message' ,
         'typeCode',
         'severityCode',
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
     ];
 
 

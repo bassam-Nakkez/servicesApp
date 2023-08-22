@@ -44,13 +44,9 @@ class DatabaseSeeder extends Seeder
         // MultipricesIncludesTax::factory(1)->create();
         // Sub_Faq::factory(5)->create();
         // ArrayOptions::factory(3)->create();
-        Order::factory()->create();
+        // Order::factory()->create();
         // Line::factory()->create();
         // LineOptions::factory()->create();
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 
     }
 }
