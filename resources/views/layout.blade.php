@@ -173,7 +173,7 @@
             </ul>
           </li>
           <li>
-            <a href="order.html"><i class="la la-cart-arrow-down"></i> <span>Order</span></a>
+            <a href="{{ route('showOrders') }}"><i class="la la-cart-arrow-down"></i> <span>Order</span></a>
           </li>
           <li>
             <a href="salary.html"><i class="la la-money"></i> <span>Salary</span></a>

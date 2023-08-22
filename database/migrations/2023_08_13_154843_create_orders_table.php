@@ -17,6 +17,8 @@ return new class extends Migration
             $table->integer('type')->nullable();
             $table->unsignedBigInteger('UserID')->nullable();
             $table->foreign('UserID')->references('UserID')->on('users');
+            $table->unsignedBigInteger('employID')->nullable();
+            $table->foreign('employID')->references('employID')->on('users');
             $table->integer('contactID')->nullable();
             $table->string('date')->nullable();
             $table->string('note_public')->nullable();

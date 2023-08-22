@@ -35,7 +35,8 @@ class Order extends Model
         'total_ttc',
         'multicurrency_total_ht',
         'subprice',
-        'userID'
+        'UserID',
+        'employID'
     ];
 
 
@@ -57,7 +58,7 @@ class Order extends Model
      */
     public function user()
     {
-        return $this->belongsTo(User::class , 'userID');
+        return $this->belongsTo(User::class , 'UserID','userID');
     }
 
 
@@ -90,6 +91,26 @@ class Order extends Model
     public function ratingOrder(): HasOne
     {
         return $this->hasOne(RatingOrder::class);
+    }
+
+    /**
+     * Get the employ that owns the Order
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function employ()
+    {
+        return $this->belongsTo(User::class, 'employID', 'userID');
+    }
+
+    /**
+     * Get the doOrder associated with the Order
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function doOrder()
+    {
+        return $this->hasOne(DoOrder::class, 'orderID', 'orderID');
     }
 
 }

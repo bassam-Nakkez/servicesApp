@@ -47,7 +47,8 @@ Route::prefix('clients')->group(function () {
 // --------------<<< order Routes >>>>---------
 
 Route::prefix('order')->group(function () {
-    Route::get('all', [OrderController::class , "allTask"] );
+    Route::get('all', [OrderController::class , "allTask"] )->name('showOrders');
+    Route::get('showOrderDetails/{order_id}', [OrderController::class , "show"] )->name('showOrderDetails');
 
 });
 

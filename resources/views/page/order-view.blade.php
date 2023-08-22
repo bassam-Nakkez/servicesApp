@@ -27,23 +27,26 @@
 								<div class="card-body">
 									<div class="project-title">
 										<h4 class="card-title"> Service details</h4>
-										<p>Surfaces and floors, sanitary facilities window cleaning,egarbage cans, maintenance of household appliances, washinf up... </p>
+										<p>{{ $order->line[0]->product->description }}</p>
 									</div>
 
 									<div class="project-title">
 										<h4 class="card-title">Customer's instructions</h4>
 									</div>
-										<p>you will find the key under the doorment, Attertion a dog is in the house </p>
+										<p>{{ ($order->note_public!=null)?$order->note_public:" " }} </p>
 										<div class="project-title">
 											<h4 class="card-title">Customer's Review</h4>
 										</div>
-											<p>Ali was super nice with the kids! I am satisfied with his service </p>
+											<p> </p>
 								</div>
 							</div>
 							<div class="card">
 								<div class="card-body">
 				                    <h5 class="card-title m-b-20">final debriefing</h5>
-									<p>Everything went well </p>
+				                    <h5 class="card-title m-b-20">report befor</h5>
+									<p>{{ $order->doOrder->message }} </p>
+                                    <h5 class="card-title m-b-20">report After</h5>
+									<p>{{ $order->doOrder->messageAfter }} </p>
 									<div class="row">
 										<div class="col-md-3 col-sm-4 col-lg-4 col-xl-3">
 											<div class="uploaded-box">
@@ -90,19 +93,19 @@
 										<tbody>
 											<tr>
 												<td>Service :</td>
-												<td class="text-right" >Home Cleaning</td>
+												<td class="text-right" >{{ $order->line[0]->product->lable }}</td>
 											</tr>
 											<tr>
 												<td>Start : </td>
-												<td  class="text-right">16:05</td>
+												<td  class="text-right">{{ date('H:i',$order->line[0]->dateStart) }}</td>
 											</tr>
 											<tr>
 												<td>End :</td>
-												<td class="text-right">18:05</td>
+												<td class="text-right">{{ date('H:i',$order->line[0]->dateEnd) }}</td>
 											</tr>
 											<tr>
 												<td>Date :</td>
-												<td class="text-right">12 Jun, 2019</td>
+												<td class="text-right">{{ date('Y-m-d', (int)$order->date) }}</td>
 											</tr>
 											<tr>
 												<td>Address :</td>
@@ -112,15 +115,15 @@
 											</tr>
 											<tr>
 												<td>Request by :</td>
-												<td class="text-right"><a href="clients-list.html">Soso Sy </a></td>
+												<td class="text-right"><a href="clients-list.html">{{ $order->user->firstName }} </a></td>
 											</tr>
 											<tr>
 												<td>done by :</td>
-												<td class="text-right"><a href="employees-list.html">Ali Salah </a></td>
+												<td class="text-right"><a href="employees-list.html">{{ $order->employ->firstName }} </a></td>
 											</tr>
 											<tr>
 												<td>Status :</td>
-												<td class="text-right">Completed</td>
+												<td class="text-right">{{ ($order->status)?"Completed":"onprocess" }}</td>
 											</tr>
 										</tbody>
 									</table>

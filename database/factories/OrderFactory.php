@@ -41,7 +41,8 @@ class OrderFactory extends Factory
             'total_ttc'=>fake()->title(),
             'multicurrency_total_ht'=>fake()->title(),
             'subprice'=>fake()->title(),
-            'userID'=>1
+            'userID'=>1,
+            'employID'=>2
         ];
     }
 }
