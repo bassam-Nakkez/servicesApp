@@ -33,7 +33,6 @@ class RebortController extends Controller
                 $product = Product::where('productID',$line->fk_product);
                 $emp = User::where('userID' ,'=' , $reports[$i]->empID );
                 // $reports[$i]['Customer'] = $emp->firstName;
-                // $report['category']= $product->label;
                 // $reports[$i]['service']= $product->lable;
             }
 
@@ -52,10 +51,23 @@ class RebortController extends Controller
 
         }
     }
-    public function view(){
+    public function view($id){
 
+        try{
+            $report = Report::where( 'reportID',$id);
+            $line = $report->line;
+            $product = Product::where('productID',$line->fk_product);
+            $emp = User::where('userID' ,'=' , $report->empID );
+            $report['CustomerName'] = $emp->firstName . ' ' . $emp->lastName;
+            $report['service']= $product->lable;
 
-        return view('page.report-view');
+            return view('page.report-view ', compact('report'))->with('success',true);
+        }catch(\Throwable $e)
+        {
+        // return view('page.report')->with('message',$e->getMessage())->with('success',false);
+            return $e->getMessage();
+        }
+
     }
 
     //

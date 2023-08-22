@@ -65,6 +65,7 @@ class DashboardController extends Controller
 
             return view('page.dashboard', compact('result') );
 
+
             //return  $dataUser;
 
             }

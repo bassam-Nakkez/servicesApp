@@ -26,7 +26,10 @@
 										<h4 class="card-title">Message : </h4>
 										<!-- <small class="block text-ellipsis m-b-15"><span class="text-xs">2</span> <span class="text-muted">open tasks, </span><span class="text-xs">5</span> <span class="text-muted">tasks completed</span></small> -->
 									</div>
-									<p>Hello, I have a problem with the service, and it is the service provider that did the work. It was not completely done, and there were leaks and bad things in its work  </p>
+									<p>
+                                        {{-- Hello, I have a problem with the service, and it is the service provider that did the work. It was not completely done, and there were leaks and bad things in its work --}}
+                                        {{$report->message}}
+                                    </p>
 
 								</div>
 							</div>
@@ -80,7 +83,7 @@
 											</tr>
                                             <tr>
 												<td>Topic :</td>
-												<td class="text-right">Service performed</td>
+												<td class="text-right">{{$report->subject}}</td>
 											</tr>
 											<tr>
 												<td>Provider :</td>
@@ -94,7 +97,7 @@
 											</tr>
 											<tr>
 												<td>Date: </td>
-												<td class="text-right">25 Feb, 2019</td>
+												<td class="text-right">{{$report->created_at}}</td>
 											</tr>
 
 										</tbody>
@@ -112,6 +115,7 @@
 				<!-- /Page Content -->
 
 
+<<<<<<< Updated upstream
             </div>
 			<!-- /Page Wrapper -->
 
@@ -146,4 +150,7 @@
 
     </body>
 </html>
+=======
+
+>>>>>>> Stashed changes
 @endsection

@@ -28,11 +28,12 @@
                 </div>
 				<!-- /Page Content -->
 
-            </div>
-			<!-- /Page Wrapper -->
 
+<<<<<<< Updated upstream
         </div>
 		<!-- /Main Wrapper -->
 
 	
+=======
+>>>>>>> Stashed changes
 @endsection

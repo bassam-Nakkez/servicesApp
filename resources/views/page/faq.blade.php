@@ -98,6 +98,7 @@
      </div>
 			<!-- /Page Wrapper -->
 
+<<<<<<< Updated upstream
       
 		<!-- /Main Wrapper -->
 
@@ -130,5 +131,7 @@
 
     </body>
 </html>
+=======
+>>>>>>> Stashed changes
 
 @endsection

@@ -294,6 +294,7 @@
 
                 </div>
 				<!-- /Page Content -->
+<<<<<<< Updated upstream
             </div>
 			<!-- /Page Wrapper -->
 
@@ -329,3 +330,5 @@
     </body>
 </html>
 @endsection
+=======
+>>>>>>> Stashed changes

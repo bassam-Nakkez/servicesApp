@@ -47,6 +47,10 @@ class DatabaseSeeder extends Seeder
         Order::factory()->create();
         // Line::factory()->create();
         // LineOptions::factory()->create();
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
     }
 }

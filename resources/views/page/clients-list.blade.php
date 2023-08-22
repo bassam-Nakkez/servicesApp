@@ -22,24 +22,28 @@
 					<!-- /Page Header -->
 
 					<!-- Search Filter -->
+                    <form action=" {{route('clinte.search')}}" method="GET">
+                        @csrf
 					<div class="row filter-row">
 						<div class="col-sm-6 col-md-3">
 							<div class="form-group form-focus">
-								<input type="text" class="form-control floating">
+								<input type="text" class="form-control floating" name="Customer-id">
 								<label class="focus-label">Customer ID</label>
 							</div>
 						</div>
 						<div class="col-sm-6 col-md-3">
 							<div class="form-group form-focus">
-								<input type="text" class="form-control floating">
+								<input type="text" class="form-control floating" name="Customer-name">
 								<label class="focus-label">Customer Name</label>
 							</div>
 						</div>
 
 						<div class="col-sm-6 col-md-3">
-							<a href="#" class="btn btn-success btn-block"> Search </a>
+                            <button  class="btn btn-success btn-block" type="submit">Search</button>
 						</div>
                     </div>
+                </form>
+
 					<!-- /Search Filter -->
 
 					<div class="row">
@@ -54,7 +58,7 @@
 											<th>Mobile</th>
 											<th class="text-nowrap">Join Date</th>
 											<th>Block</th>
-											<th class="text-right no-sort">Action</th>
+											{{-- <th class="text-right no-sort">Action</th> --}}
 										</tr>
 									</thead>
 									<tbody>
@@ -83,7 +87,13 @@
 												</div>
 
 
+<<<<<<< Updated upstream
 											</td>
+=======
+
+
+                                        @foreach ($users as $user)
+>>>>>>> Stashed changes
 
 											<td class="text-right">
 												<div class="dropdown dropdown-action">
@@ -152,7 +162,12 @@
 
 
 											</td>
+<<<<<<< Updated upstream
 											<td class="text-right">
+=======
+
+											{{-- <td class="text-right">
+>>>>>>> Stashed changes
 												<div class="dropdown dropdown-action">
 													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 													<div class="dropdown-menu dropdown-menu-right">
@@ -160,8 +175,13 @@
 													</div>
 												</div>
 											</td>
-										</tr>
+										</tr> --}}
 
+<<<<<<< Updated upstream
+=======
+                                        @endforeach
+
+>>>>>>> Stashed changes
 									</tbody>
 								</table>
 							</div>
@@ -232,6 +252,7 @@
 				<!-- /Block  Modal -->
 
 
+<<<<<<< Updated upstream
             </div>
 			<!-- /Page Wrapper -->
 
@@ -266,4 +287,6 @@
 
     </body>
 </html>
+=======
+>>>>>>> Stashed changes
 @endsection

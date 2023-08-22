@@ -1,8 +1,16 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoriesController;
+<<<<<<< Updated upstream
 use App\Http\Controllers\Admin\Faqs;
 use App\Http\Controllers\Admin\SalaryController;
+=======
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\EmployeeController;
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\RebortController;
+use App\Http\Controllers\Admin\ServiceProviderController;
+>>>>>>> Stashed changes
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
@@ -36,7 +44,14 @@ Route::prefix('categories')->group(function () {
 Route::prefix('clients')->group(function () {
 
     Route::get('index',[UserController::class ,'index'])->name('clinte.index');
+<<<<<<< Updated upstream
     Route::get('block',[UserController::class ,'block'])->name('clinte.edit');
+=======
+    Route::get('block',[UserController::class ,'block'])->name('clinte.block');
+    Route::get('search',[UserController::class ,'search'])->name('clinte.search');
+
+
+>>>>>>> Stashed changes
 });
 
 
@@ -56,6 +71,32 @@ Route::prefix('salary')->group(function () {
     
 });
 
+<<<<<<< Updated upstream
+=======
+// --------------<<< report Routes >>>>---------
+
+Route::prefix('report')->group(function () {
+    Route::get('index', [RebortController::class , "index"] )->name('report.index');
+    Route::get('view/{id}', [RebortController::class , "view"] )->name('report.view');
+});
+
+// --------------<<< employees Route >>>>---------
+
+Route::prefix('serviceProvider')->group(function () {
+    Route::get('index', [ServiceProviderController::class , "index"] )->name('serviceProvider.index');
+    Route::get('shpw/{id}', [ServiceProviderController::class , "show"] )->name('serviceProvider.show');
+
+});
+
+
+
+
+// Route::get('/report', function () {
+//     return view('report');
+// })->name('report');
+
+
+>>>>>>> Stashed changes
 
 
 //		<form action="{{ route('specific_route', ['user_id' => $user_id]) }}" method="POST" >
