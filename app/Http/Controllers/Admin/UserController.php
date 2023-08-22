@@ -13,63 +13,50 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        if($users)
+        try
         {
-            return view( 'page.clients-list', compact('$users' ) )->with('success',true);
+            $users = User::all();
+            return view( 'page.clients-list', compact('users' ) )->with('success',true);
+        }
+
+        catch(\Throwable $e)
+        {
+            return $e->getMessage();
+        }
+
+    }
+
+    public function search(Request $request)
+    {
+
+        //  return $request['Customer-id'];
+
+        if(isset($request['Customer-id'])){
+            $users = User::where('userID', '=', $request['Customer-id']);
+        }
+        else if(isset($request['Customer-id']))
+        {
+            $users = User::where('userID', '=', $request['Customer-name']);
 
         }
-        else {
 
-           return view( 'page.clients-list' )->with('success',false);
-        }
+       return view( 'page.clients-list', compact('users' ) )->with('success',true);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+
+    public function block($id)
     {
-        //
+        // try{
+
+
+
+        // }
+        // catch(\Throwable $e)
+        // {
+        //    return $e->getMessage();
+        // }
+
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }

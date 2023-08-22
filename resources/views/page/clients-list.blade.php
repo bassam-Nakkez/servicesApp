@@ -22,24 +22,28 @@
 					<!-- /Page Header -->
 
 					<!-- Search Filter -->
+                    <form action=" {{route('clinte.search')}}" method="GET">
+                        @csrf
 					<div class="row filter-row">
 						<div class="col-sm-6 col-md-3">
 							<div class="form-group form-focus">
-								<input type="text" class="form-control floating">
+								<input type="text" class="form-control floating" name="Customer-id">
 								<label class="focus-label">Customer ID</label>
 							</div>
 						</div>
 						<div class="col-sm-6 col-md-3">
 							<div class="form-group form-focus">
-								<input type="text" class="form-control floating">
+								<input type="text" class="form-control floating" name="Customer-name">
 								<label class="focus-label">Customer Name</label>
 							</div>
 						</div>
 
 						<div class="col-sm-6 col-md-3">
-							<a href="#" class="btn btn-success btn-block"> Search </a>
+                            <button  class="btn btn-success btn-block" type="submit">Search</button>
 						</div>
                     </div>
+                </form>
+
 					<!-- /Search Filter -->
 
 					<div class="row">
@@ -54,7 +58,7 @@
 											<th>Mobile</th>
 											<th class="text-nowrap">Join Date</th>
 											<th>Block</th>
-											<th class="text-right no-sort">Action</th>
+											{{-- <th class="text-right no-sort">Action</th> --}}
 										</tr>
 									</thead>
 									<tbody>
@@ -83,7 +87,9 @@
 												</div>
 
 
-											</td>
+
+
+                                        @foreach ($users as $user)
 
 											<td class="text-right">
 												<div class="dropdown dropdown-action">
@@ -152,7 +158,8 @@
 
 
 											</td>
-											<td class="text-right">
+
+											{{-- <td class="text-right">
 												<div class="dropdown dropdown-action">
 													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 													<div class="dropdown-menu dropdown-menu-right">
@@ -160,7 +167,9 @@
 													</div>
 												</div>
 											</td>
-										</tr>
+										</tr> --}}
+
+                                        @endforeach
 
 									</tbody>
 								</table>
@@ -232,38 +241,4 @@
 				<!-- /Block  Modal -->
 
 
-            </div>
-			<!-- /Page Wrapper -->
-
-        </div>
-		<!-- /Main Wrapper -->
-
-		<!-- jQuery -->
-        <script src="assets/js/jquery-3.5.1.min.js"></script>
-
-		<!-- Bootstrap Core JS -->
-        <script src="assets/js/popper.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-
-		<!-- Slimscroll JS -->
-		<script src="assets/js/jquery.slimscroll.min.js"></script>
-
-		<!-- Select2 JS -->
-		<script src="assets/js/select2.min.js"></script>
-
-		<!-- Datetimepicker JS -->
-		<script src="assets/js/moment.min.js"></script>
-		<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
-
-		<!-- Datatable JS -->
-		<script src="assets/js/jquery.dataTables.min.js"></script>
-		<script src="assets/js/dataTables.bootstrap4.min.js"></script>
-
-		<!-- Summernote JS -->
-		<script src="assets/plugins/summernote/dist/summernote-bs4.min.js"></script>
-		<!-- Custom JS -->
-		<script src="assets/js/app.js"></script>
-
-    </body>
-</html>
 @endsection

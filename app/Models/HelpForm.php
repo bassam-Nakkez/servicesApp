@@ -18,7 +18,6 @@ class HelpForm extends Model
         'message' ,
         'typeCode',
         'severityCode',
-
     ];
 
 

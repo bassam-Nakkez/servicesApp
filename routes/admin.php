@@ -4,6 +4,11 @@ use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\Faqs;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\SalaryController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\EmployeeController;
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\RebortController;
+use App\Http\Controllers\Admin\ServiceProviderController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
@@ -37,7 +42,10 @@ Route::prefix('categories')->group(function () {
 Route::prefix('clients')->group(function () {
 
     Route::get('index',[UserController::class ,'index'])->name('clinte.index');
-    Route::get('block',[UserController::class ,'block'])->name('clinte.edit');
+    Route::get('block',[UserController::class ,'block'])->name('clinte.block');
+    Route::get('search',[UserController::class ,'search'])->name('clinte.search');
+
+
 });
 
 
@@ -56,6 +64,29 @@ Route::prefix('salary')->group(function () {
     Route::get('delete',[SalaryController::class , 'destroy'])->name('');
 
 });
+
+// --------------<<< report Routes >>>>---------
+
+Route::prefix('report')->group(function () {
+    Route::get('index', [RebortController::class , "index"] )->name('report.index');
+    Route::get('view/{id}', [RebortController::class , "view"] )->name('report.view');
+});
+
+// --------------<<< employees Route >>>>---------
+
+Route::prefix('serviceProvider')->group(function () {
+    Route::get('index', [ServiceProviderController::class , "index"] )->name('serviceProvider.index');
+    Route::get('shpw/{id}', [ServiceProviderController::class , "show"] )->name('serviceProvider.show');
+
+});
+
+
+
+
+// Route::get('/report', function () {
+//     return view('report');
+// })->name('report');
+
 
 
 

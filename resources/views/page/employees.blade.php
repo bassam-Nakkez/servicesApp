@@ -2,8 +2,6 @@
 
 @section('content');
 
-
-
 				<!-- Page Content -->
                 <div class="content container-fluid">
 
@@ -39,7 +37,7 @@
 						<div class="col-sm-6 col-md-3">
 							<div class="form-group form-focus">
 								<input type="text" class="form-control floating">
-								<label class="focus-label">Service Provider Name</label>
+								<label class="focus-label"> {{}}Service Provider Name</label>
 							</div>
 						</div>
 						<div class="col-sm-6 col-md-3">
@@ -61,7 +59,9 @@
 					<!-- Search Filter -->
 
 					<div class="row staff-grid-row">
-						<div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3">
+
+
+						{{-- <div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3">
 							<div class="profile-widget">
 								<div class="profile-img">
 									<a href="profile.html" class="avatar"><img src="assets/img/profiles/Profile1.jpg" alt=""></a>
@@ -76,11 +76,14 @@
 								<h4 class="user-name m-t-10 mb-0 text-ellipsis"><a href="profile.html">Ali salah</a></h4>
 								<div class="small text-muted">Home Cleaning</div>
 							</div>
-						</div>
+						</div> --}}
+
+                        @foreach ($sps as $sp )
+
 						<div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3">
 							<div class="profile-widget">
 								<div class="profile-img">
-									<a href="profile.html" class="avatar"><img src="assets/img/profiles/profile2.jpg" alt=""></a>
+									<a href="profile.html" class="avatar"><img src="{{asset($sp)}}" alt=""></a>
 								</div>
 								<div class="dropdown profile-action">
 									<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
@@ -89,90 +92,15 @@
 										<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
 									</div>
 								</div>
-								<h4 class="user-name m-t-10 mb-0 text-ellipsis"><a href="profile.html">samer sleman</a></h4>
+								<h4 class="user-name m-t-10 mb-0 text-ellipsis"><a href="profile.html"> {{$sp['fullName']}}samer sleman</a></h4>
 								<div class="small text-muted">Pipe repair</div>
 							</div>
 						</div>
-						<div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3">
-							<div class="profile-widget">
-								<div class="profile-img">
-									<a href="profile.html" class="avatar"><img src="assets/img/profiles/profile3.jpeg" alt=""></a>
-								</div>
-								<div class="dropdown profile-action">
-									<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-									<div class="dropdown-menu dropdown-menu-right">
-										<a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_employee"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-										<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-									</div>
-								</div>
-								<h4 class="user-name m-t-10 mb-0 text-ellipsis"><a href="profile.html">John Smith</a></h4>
-								<div class="small text-muted">Moving furniture</div>
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3">
-							<div class="profile-widget">
-								<div class="profile-img">
-									<a href="profile.html" class="avatar"><img src="assets/img/profiles/profile4.jpg" alt=""></a>
-								</div>
-								<div class="dropdown profile-action">
-									<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-									<div class="dropdown-menu dropdown-menu-right">
-										<a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_employee"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-										<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-									</div>
-								</div>
-								<h4 class="user-name m-t-10 mb-0 text-ellipsis"><a href="profile.html">jaswon jake</a></h4>
-								<div class="small text-muted">Car Cleaning</div>
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3">
-							<div class="profile-widget">
-								<div class="profile-img">
-									<a href="profile.html" class="avatar"><img src="assets/img/profiles/Bassam.png" alt=""></a>
-								</div>
-								<div class="dropdown profile-action">
-									<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-									<div class="dropdown-menu dropdown-menu-right">
-										<a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_employee"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-										<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-									</div>
-								</div>
-								<h4 class="user-name m-t-10 mb-0 text-ellipsis"><a href="profile.html">Bassam NKS</a></h4>
-								<div class="small text-muted">Teacher Arabic</div>
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3">
-							<div class="profile-widget">
-								<div class="profile-img">
-									<a href="profile.html" class="avatar"><img src="assets/img/profiles/KH.png" alt=""></a>
-								</div>
-								<div class="dropdown profile-action">
-									<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-									<div class="dropdown-menu dropdown-menu-right">
-										<a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_employee"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-										<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-									</div>
-								</div>
-								<h4 class="user-name m-t-10 mb-0 text-ellipsis"><a href="profile.html">Bassam KH</a></h4>
-								<div class="small text-muted">Teacher English</div>
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3">
-							<div class="profile-widget">
-								<div class="profile-img">
-									<a href="profile.html" class="avatar"><img src="assets/img/profiles/avatar-01.jpg" alt=""></a>
-								</div>
-								<div class="dropdown profile-action">
-									<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-									<div class="dropdown-menu dropdown-menu-right">
-										<a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_employee"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-										<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-									</div>
-								</div>
-								<h4 class="user-name m-t-10 mb-0 text-ellipsis"><a href="profile.html">Katrina sno</a></h4>
-								<div class="small text-muted">Baby sitter </div>
-							</div>
-						</div>
+
+                        @endforeach
+
+
+
 
 					</div>
                 </div>
@@ -390,38 +318,4 @@
 				</div>
 				<!-- /Delete Employee Modal -->
 
-            </div>
-			<!-- /Page Wrapper -->
-
-        </div>
-		<!-- /Main Wrapper -->
-
-		<!-- jQuery -->
-        <script src="assets/js/jquery-3.5.1.min.js"></script>
-
-		<!-- Bootstrap Core JS -->
-        <script src="assets/js/popper.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-
-		<!-- Slimscroll JS -->
-		<script src="assets/js/jquery.slimscroll.min.js"></script>
-
-		<!-- Select2 JS -->
-		<script src="assets/js/select2.min.js"></script>
-
-		<!-- Datetimepicker JS -->
-		<script src="assets/js/moment.min.js"></script>
-		<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
-
-		<!-- Datatable JS -->
-		<script src="assets/js/jquery.dataTables.min.js"></script>
-		<script src="assets/js/dataTables.bootstrap4.min.js"></script>
-
-		<!-- Summernote JS -->
-		<script src="assets/plugins/summernote/dist/summernote-bs4.min.js"></script>
-		<!-- Custom JS -->
-		<script src="assets/js/app.js"></script>
-
-    </body>
-</html>
 @endsection
