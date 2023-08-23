@@ -12,7 +12,6 @@ class ServiceProviderController extends Controller
     {
         try{
 
-
             $sps = User::query()->where('socid' , 0 )->with('category')->latest()->limit(15)->get();
 
             for ( $i = 0 ; $i < count($sps) ; $i++ )

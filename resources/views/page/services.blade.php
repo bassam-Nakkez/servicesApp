@@ -63,8 +63,9 @@
 													<div class="file-content-inner">
 														<!-- <h4>Recent Service</h4> -->
 														<br>
+                                                        <div class="row row-sm">
+
                                                         @foreach ($products as $product)
-														<div class="row row-sm">
 															<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
 																<div class="card card-file">
 																	<div class="dropdown-file">
@@ -88,8 +89,8 @@
 																</div>
 															</div>
 
-														</div>
                                                         @endforeach
+                                                    </div>
 													</div>
 												</div>
 											</div>
