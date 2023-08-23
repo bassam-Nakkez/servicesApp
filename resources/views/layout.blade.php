@@ -175,7 +175,7 @@
 									<a href="#"><i class="la la-gears"></i> <span> Categories Services </span> <span class="menu-arrow"></span></a>
 									<ul style="display: none;">
 										<li ><a href="{{route('categories.index')}}">Categories</a></li>
-										<li><a href="services.html">Services</a></li>
+										<li><a href="{{ route('showProduct') }}">Services</a></li>
 
 									</ul>
 								</li>
@@ -190,7 +190,7 @@
 									<a href="Employment.html"><i class="la la-briefcase"></i> <span>Employment Requests</span></a>
 								</li>
 								<li>
-									<a  href="report.html"><i class="la la-pie-chart"></i> <span>Reports</span></a>
+									<a  href="{{ route('report.index') }}"><i class="la la-pie-chart"></i> <span>Reports</span></a>
 								</li>
 								<li>
 									<a href="activities.html"><i class="la la-bell"></i> <span>Activities</span></a>

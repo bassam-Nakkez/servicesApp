@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\DoOrder;
 use App\Models\HelpForm;
 use App\Models\Line;
 use App\Models\Product;
@@ -23,27 +24,18 @@ class RebortController extends Controller
         try
         {
             // $reports = Report::all()->latest()->limit(100);
-            $reports = Report::all();
+            $reports = DoOrder::query()->with('order')->latest()->limit(20)->get();
 
 
             for ($i=1 ; $i<count($reports);$i++)
             {
-
-                $line = $reports[$i]->line;
-                $product = Product::where('productID',$line->fk_product);
-                $emp = User::where('userID' ,'=' , $reports[$i]->empID );
-                // $reports[$i]['Customer'] = $emp->firstName;
-                // $reports[$i]['service']= $product->lable;
+                $reports[$i]->order->user;
+                $lines = $reports[$i]->order->line;
+                $product=$lines[0]->product;
+                $product->category;
             }
 
-            // return $reports;
-
-            // for($i=0 ; $i < count($reports) ; $i++)
-            // {
-            //     $line = $reports[$i]->line;
-            // }
-            $i=1;
-            return view('page.report',compact('reports','i'))->with('success',true);
+            return view('page.report')->with('reports',$reports);
         }
         catch(\Throwable $e){
           return  $e->getMessage();
@@ -54,17 +46,16 @@ class RebortController extends Controller
     public function view($id){
 
         try{
-            $report = Report::where( 'reportID',$id);
-            $line = $report->line;
-            $product = Product::where('productID',$line->fk_product);
-            $emp = User::where('userID' ,'=' , $report->empID );
-            $report['CustomerName'] = $emp->firstName . ' ' . $emp->lastName;
-            $report['service']= $product->lable;
+            $report = DoOrder::query()->where('doOrderID','=',$id)->with('order')->get();
+                $report[0]->order->user;
+                $lines = $report[0]->order->line;
+                $product=$lines[0]->product;
+                $product->category;
 
-            return view('page.report-view ', compact('report'))->with('success',true);
+
+            return view('page.report')->with('reports',$report);
         }catch(\Throwable $e)
         {
-        // return view('page.report')->with('message',$e->getMessage())->with('success',false);
             return $e->getMessage();
         }
 

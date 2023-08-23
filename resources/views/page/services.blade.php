@@ -25,21 +25,12 @@
 									<div class="file-pro-list">
 										<div class="file-scroll">
 											<ul class="file-menu">
-												<li >
-													<a href="#">All Service</a>
+                                                @foreach ($categories as $category)
+                                                <li >
+													<a href="#">{{ $category->label }}</a>
 												</li>
-												<li>
-													<a href="#">Cleanings</a>
-												</li>
-												<li>
-													<a href="#">Maintenance</a>
-												</li>
-												<li>
-													<a href="#">Education</a>
-												</li>
-												<li>
-													<a href="#">Transfer</a>
-												</li>
+                                                @endforeach
+
 											</ul>
 											<div class="show-more">
 												<a href="#">Show More</a>
@@ -72,6 +63,7 @@
 													<div class="file-content-inner">
 														<!-- <h4>Recent Service</h4> -->
 														<br>
+                                                        @foreach ($products as $product)
 														<div class="row row-sm">
 															<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
 																<div class="card card-file">
@@ -88,179 +80,16 @@
 																	  </div>
 																    </div>
 																	<div class="card-body">
-																		<h6>teacher English</h6>
+																		<h6>{{ $product->lable }}</h6>
 																	</div>
 																	<div class="card-footer">
-																		<span class="d-none d-sm-inline">Price: </span><span>100$</span>
-																	</div>
-																</div>
-															</div>
-
-															<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
-																<div class="card card-file">
-																	<div class="dropdown-file">
-																		<a href="" class="dropdown-link" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
-																		<div class="dropdown-menu dropdown-menu-right">
-																			<a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_service"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-																			<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_service"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-																		</div>
-																	</div>
-																	<div class="card-file-thumb">
-																	  <div class="welcome-img"  >
-																		<img alt="" src="assets/img/profiles/KH.png"  >
-																	  </div>
-																    </div>
-																	<div class="card-body">
-																		<h6>teacher English</h6>
-																	</div>
-																	<div class="card-footer">
-																		<span class="d-none d-sm-inline">Price: </span><span>100$</span>
-																	</div>
-																</div>
-															</div>
-															<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
-																<div class="card card-file">
-																	<div class="dropdown-file">
-																		<a href="" class="dropdown-link" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
-																		<div class="dropdown-menu dropdown-menu-right">
-																			<a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_service"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-																			<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_service"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-																		</div>
-																	</div>
-																	<div class="card-file-thumb">
-																	  <div class="welcome-img"  >
-																		<img alt="" src="assets/img/profiles/KH.png"  >
-																	  </div>
-																    </div>
-																	<div class="card-body">
-																		<h6>teacher English</h6>
-																	</div>
-																	<div class="card-footer">
-																		<span class="d-none d-sm-inline">Price: </span><span>100$</span>
-																	</div>
-																</div>
-															</div>
-
-															<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
-																<div class="card card-file">
-																	<div class="dropdown-file">
-																		<a href="" class="dropdown-link" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
-																		<div class="dropdown-menu dropdown-menu-right">
-																			<a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_service"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-																			<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_service"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-																		</div>
-																	</div>
-																	<div class="card-file-thumb">
-																	  <div class="welcome-img"  >
-																		<img alt="" src="assets/img/profiles/KH.png"  >
-																	  </div>
-																    </div>
-																	<div class="card-body">
-																		<h6>teacher English</h6>
-																	</div>
-																	<div class="card-footer">
-																		<span class="d-none d-sm-inline">Price: </span><span>100$</span>
+																		<span class="d-none d-sm-inline">Price: </span><span>{{ $product->price }}$</span>
 																	</div>
 																</div>
 															</div>
 
 														</div>
-
-														<!-- <h4>Files</h4> -->
-														<div class="row row-sm">
-															<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
-																<div class="card card-file">
-																	<div class="dropdown-file">
-																		<a href="" class="dropdown-link" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
-																		<div class="dropdown-menu dropdown-menu-right">
-																			<a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_service"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-																			<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_service"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-																		</div>
-																	</div>
-																	<div class="card-file-thumb">
-																	  <div class="welcome-img"  >
-																		<img alt="" src="assets/img/profiles/KH.png"  >
-																	  </div>
-																    </div>
-																	<div class="card-body">
-																		<h6>teacher English</h6>
-																	</div>
-																	<div class="card-footer">
-																		<span class="d-none d-sm-inline">Price: </span><span>100$</span>
-																	</div>
-																</div>
-															</div>
-
-															<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
-																<div class="card card-file">
-																	<div class="dropdown-file">
-																		<a href="" class="dropdown-link" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
-																		<div class="dropdown-menu dropdown-menu-right">
-																			<a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_service"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-																			<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_service"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-																		</div>
-																	</div>
-																	<div class="card-file-thumb">
-																	  <div class="welcome-img"  >
-																		<img alt="" src="assets/img/profiles/KH.png"  >
-																	  </div>
-																    </div>
-																	<div class="card-body">
-																		<h6>teacher English</h6>
-																	</div>
-																	<div class="card-footer">
-																		<span class="d-none d-sm-inline">Price: </span><span>100$</span>
-																	</div>
-																</div>
-															</div>
-
-															<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
-																<div class="card card-file">
-																	<div class="dropdown-file">
-																		<a href="" class="dropdown-link" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
-																		<div class="dropdown-menu dropdown-menu-right">
-																			<a href="#" class="dropdown-item">Edit</a>
-																			<a href="#" class="dropdown-item">Delete</a>
-
-																		</div>
-																	</div>
-																	<div class="card-file-thumb">
-																	  <div class="welcome-img"  >
-																		<img alt="" src="assets/img/profiles/KH.png"  >
-																	  </div>
-																    </div>
-																	<div class="card-body">
-																		<h6>teacher English</h6>
-																	</div>
-																	<div class="card-footer">
-																		<span class="d-none d-sm-inline">Price: </span><span>100$</span>
-																	</div>
-																</div>
-															</div>
-
-															<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
-																<div class="card card-file">
-																	<div class="dropdown-file">
-																		<a href="" class="dropdown-link" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
-																		<div class="dropdown-menu dropdown-menu-right">
-																			<a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_service"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-																			<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_service"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-																		</div>
-																	</div>
-																	<div class="card-file-thumb">
-																	  <div class="welcome-img"  >
-																		<img alt="" src="assets/img/profiles/KH.png"  >
-																	  </div>
-																    </div>
-																	<div class="card-body">
-																		<h6>teacher English</h6>
-																	</div>
-																	<div class="card-footer">
-																		<span class="d-none d-sm-inline">Price: </span><span>100$</span>
-																	</div>
-																</div>
-															</div>
-														</div>
+                                                        @endforeach
 													</div>
 												</div>
 											</div>
@@ -285,7 +114,9 @@
 										</button>
 									</div>
 									<div class="modal-body">
-										<form>
+										<form action="{{ route('addProduct') }}" method="post">
+                                            @csrf
+                                            @method('POST')
 											<div class="form-group">
 												<img src="assets/img/placeholder.jpg" alt="Profile" id="profile-image" style="height:150px; width:150px; border-radius: 5px; border:2px solid white">
 												<input type="file" id="image-file" style="display:none">
@@ -296,48 +127,44 @@
 												<div class="col-sm-6">
 													<div class="form-group">
 														<label class="col-form-label">Service Name </label>
-														<input class="form-control" type="text">
+														<input class="form-control" type="text" name="lable">
 													</div>
 												</div>
 												<div class="col-sm-6">
 													<div class="form-group">
 														<label class="col-form-label">Price</label>
-														<input class="form-control" type="number">
+														<input class="form-control" type="number" name="price">
 													</div>
 												</div>
 
 												<div class="col-sm-6">
 													<div class="form-group">
 														<label class="col-form-label">PriceMin  </label>
-														<input class="form-control" type="number">
+														<input class="form-control" type="number" name="priceMin">
 													</div>
 												</div>
 												<div class="col-md-6">
 													<div class="form-group">
 														<label>Categories </label>
-														<select class="select">
-															<option>Select categorie</option>
-															<option>Cleaning</option>
-															<option>Courses</option>
-															<option>Repair</option>
+														<select class="select" name="categoryID">
+                                                            @foreach ($categories as $category)
+															<option value="{{ $category->categoryID }}">{{ $category->label }}</option>
+                                                            @endforeach
+
 														</select>
 													</div>
-												</div>
-												<div class="col-md-6">
-													<label for="color-picker">Choose color</label>
-													<input class="form-control" type="color" id="color-picker" value="#ffffff">
-
-												</div>
-												<div class="col-md-6">
-													<label for="color-value"> Color Value </label>
-													<input class="form-control" type="text" id="color-value" readonly>
 												</div>
 
 											</div>
 											<br>
 											<div class="form-group">
 												<label class="col-form-label">Condition</label>
-												<textarea rows="4" class="form-control" placeholder="Enter your message here"></textarea>
+												<textarea rows="4" class="form-control" placeholder="Enter your message here" name="condtion"></textarea>
+											</div>
+
+                                            <div class="form-group">
+												<label class="col-form-label">Description</label>
+												<textarea rows="4" class="form-control" placeholder="Enter your message here" name="description"></textarea>
 											</div>
 
 											<div class="submit-section">

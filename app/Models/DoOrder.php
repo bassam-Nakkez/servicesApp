@@ -22,4 +22,14 @@ class DoOrder extends Model
         'userId'
 
     ];
+
+    /**
+     * Get the order that owns the DoOrder
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function order()
+    {
+        return $this->belongsTo(Order::class, 'orderID', 'orderID');
+    }
 }

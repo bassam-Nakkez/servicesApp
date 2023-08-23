@@ -71,22 +71,22 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<td>1</td>
-												<td>Abd alkhader</td>
-												<td>CU-0002</td>
+                                            @php
+                                                $i=0;
+                                            @endphp
+                                            @foreach ($reports as $report)
+                                            <tr>
+												<td>{{ $i+1 }}</td>
+												<td>{{ $report->order->user->firstName }}</td>
+												<td>{{ $report->doOrderID }}</td>
 												<td>Service performed</td>
-												<td>Home Cleanning</td>
-												<td>17 Mar 2019</td>
+												<td>{{ $report->order->line[0]->product->category->label }}</td>
+												<td>{{ date('Y-m-d',(int)$report->order->date) }}</td>
 											</tr>
-											<tr>
-												<td>2</td>
-												<td>Soso sy</td>
-												<td>CU-0001</td>
-												<td>My Service provider</td>
-												<td>Baby siter</td>
-												<td>20 Mar 2019</td>
-											</tr>
+                                            @php
+                                                $i++;
+                                            @endphp
+                                            @endforeach
 										</tbody>
 									</table>
 								</div>

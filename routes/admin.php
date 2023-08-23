@@ -2,11 +2,11 @@
 
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\Faqs;
-use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\SalaryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RebortController;
 use App\Http\Controllers\Admin\ServiceProviderController;
 use App\Http\Controllers\Admin\UserController;
@@ -77,6 +77,15 @@ Route::prefix('report')->group(function () {
 Route::prefix('serviceProvider')->group(function () {
     Route::get('index', [ServiceProviderController::class , "index"] )->name('serviceProvider.index');
     Route::get('shpw/{id}', [ServiceProviderController::class , "show"] )->name('serviceProvider.show');
+
+});
+
+Route::prefix('product')->group(function () {
+
+    Route::get('index',[ProductController::class ,'index'])->name('showProduct');
+    Route::get('show/{easer_id}',[ProductController::class ,'show'])->name('showProductDetails');
+    Route::post('store',[ProductController::class,'store'])->name('addProduct');
+    Route::get('delete',[ProductController::class , 'destroy'])->name('deleteProduct');
 
 });
 
