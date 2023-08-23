@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RebortController;
 use App\Http\Controllers\Admin\ServiceProviderController;
+use App\Http\Controllers\Admin\TaskController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
@@ -83,13 +84,22 @@ Route::prefix('serviceProvider')->group(function () {
 
 Route::prefix('product')->group(function () {
 
+    Route::get('add/{easer_id}',[TaskController::class ,'add'])->name('addTask');
+    Route::post('store',[TaskController::class,'store'])->name('storeTask');
+    Route::get('delete/{id}',[TaskController::class , 'destroy'])->name('deleteTask');
+
+});
+
+
+
+Route::prefix('task')->group(function () {
+
     Route::get('index',[ProductController::class ,'index'])->name('showProduct');
     Route::get('show/{easer_id}',[ProductController::class ,'show'])->name('showProductDetails');
     Route::post('store',[ProductController::class,'store'])->name('addProduct');
     Route::get('delete',[ProductController::class , 'destroy'])->name('deleteProduct');
 
 });
-
 
 
 

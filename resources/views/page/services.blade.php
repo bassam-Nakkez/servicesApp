@@ -71,7 +71,7 @@
 																	<div class="dropdown-file">
 																		<a href="" class="dropdown-link" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
 																		<div class="dropdown-menu dropdown-menu-right">
-																			<a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_service"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+																			<a class="dropdown-item" href="{{ route('addTask',$product->productID) }}" ><i class="fa fa-pencil m-r-5"></i> Addsub</a>
 																			<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_service"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
 																		</div>
 																	</div>
