@@ -1,7 +1,5 @@
-@extends('layout');
-
-@section('content');
-
+@extends('layout')
+@section('content')
 				<!-- Page Content -->
                 <div class="content container-fluid">
 

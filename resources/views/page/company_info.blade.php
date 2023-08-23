@@ -1,4 +1,5 @@
-@section('content');
+@extends('layout')
+@section('content')
 
 
 				<!-- Page Content -->

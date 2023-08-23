@@ -2,7 +2,7 @@
 
 
 @section('content')
-			
+
 				<script>
 						$(document).ready(function(){
 							$('#edit-form').on('submit', function(e){
@@ -35,11 +35,10 @@
 				}
 
 			</script>
-		  <div class="page-wrapper">
-			
+
 				<!-- Page Content -->
                 <div class="content container-fluid">
-				
+
 					<!-- Page Header -->
 					<div class="page-header">
 						<div class="row align-items-center">
@@ -56,7 +55,7 @@
 						</div>
 					</div>
 					<!-- /Page Header -->
-					
+
 					<div class="row">
 						<div class="col-md-12">
 							<div>
@@ -71,7 +70,7 @@
 									</thead>
 									<tbody>
 										<tr>
-								
+
 											@foreach ($categories as $category )
 
 											<tr>
@@ -94,7 +93,7 @@
 
 											@endforeach
 										<tr>
-											
+
 									</tbody>
 								</table>
 							</div>
@@ -102,7 +101,7 @@
 					</div>
                 </div>
 				<!-- /Page Content -->
-			
+
 
 				<div class="modal custom-modal fade" id="delete_category" role="dialog">
 					<div class="modal-dialog modal-dialog-centered">
@@ -118,12 +117,12 @@
 											<a href="javascript:void(0);" class="btn btn-primary continue-btn" href="{{ route('categories.delete') }}"
 											   onclick="event.preventDefault();
 														 document.getElementById('delete-Category-form').submit();">Delete</a>
-	
+
 											<form id="delete-Category-form" action="{{ route('categories.delete') }}" method="GET" class="d-none">
 												@csrf
 												@method('DELETE')
 												<input name="Category_id" id="Category_id" type="hidden" >
-	
+
 											</form>
 										</div>
 										<div class="col-6">
@@ -138,7 +137,7 @@
 				</div>
 
 				<!-- edit -->
-							
+
 				<div id="edit_category" class="modal custom-modal fade" role="dialog">
 					<div class="modal-dialog modal-dialog-centered" role="document">
 						<div class="modal-content">
@@ -149,21 +148,21 @@
 									<input type="hidden" name="Category_id" id="Category_id">
 									<!-- ... -->
 									<div class="form-group">
-										
+
 										<img src="assets/img/profiles/Profile1.jpg" alt="Profile" id="edit-profile-image" style="height:150px; width:150px; border-radius: 5px; border:2px solid white; ">
 										<input type="file" id="edit-image-file" style="display:none">
-									
+
 								</div>
 								<div class="form-group">
 									<label>Category Name </label>
 									<input class="form-control"  type="text" value="Cleanings">
 								</div>
-							
+
 								<div class="row">
 									<div class="col-md-6">
 										<label for="color-picker">Choose color</label>
 										<input class="form-control"  type="color" id="edit-color-picker" value="#ffffff">
-										
+
 									</div>
 									<div class="col-md-6">
 										<label for="color-value"> Color Value </label>
@@ -178,11 +177,10 @@
 						</div>
 					</div>
 				</div>
-		
-				
-				
-            </div>
-@endsection	
+
+
+
+@endsection
 
 
 
@@ -190,6 +188,6 @@
 
 
 
-	
-	
+
+
 

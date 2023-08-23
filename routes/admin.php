@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoriesController;
+use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\Faqs;
 use App\Http\Controllers\Admin\SalaryController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -89,6 +90,18 @@ Route::prefix('product')->group(function () {
     Route::get('delete',[ProductController::class , 'destroy'])->name('deleteProduct');
 
 });
+
+
+Route::prefix('companyInfo')->group(function () {
+
+    Route::get('view',[CompanyController::class ,'view'])->name('companyInfo.view');
+    Route::get('update',[CompanyController::class , 'update'])->name('companyInfo.update');
+});
+
+
+
+Route::get('employment',[EmployeeController::class , 'employment'])->name('employment');
+Route::get('dashboard',[DashboardController::class , 'view'])->name('dashboard.view');
 
 
 

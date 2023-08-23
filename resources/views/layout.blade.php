@@ -159,7 +159,7 @@
 									<span>SPS</span>
 								</li>
 								<li>
-									<a href="index.html"><i class="la la-dashboard"></i> <span> Dashboard</span></a>
+									<a href="{{route('dashboard.view')}}"><i class="la la-dashboard"></i> <span> Dashboard</span></a>
 								</li>
 
 								<li class="submenu">
@@ -187,16 +187,16 @@
 									<a href="{{route('showSalary')}}"><i class="la la-money"></i> <span>Salary</span></a>
 								</li>
 								<li>
-									<a href="Employment.html"><i class="la la-briefcase"></i> <span>Employment Requests</span></a>
+									<a href="{{route('employment')}}"><i class="la la-briefcase"></i> <span>Employment Requests</span></a>
 								</li>
 								<li>
 									<a  href="{{ route('report.index') }}"><i class="la la-pie-chart"></i> <span>Reports</span></a>
-								</li>
+								{{-- </li>
 								<li>
 									<a href="activities.html"><i class="la la-bell"></i> <span>Activities</span></a>
 								</li>
-								<li>
-									<a href="company_info.html"><i class="la la-cog"></i> <span>Company Settings</span></a>
+								<li> --}}
+									<a href="{{ route('companyInfo.view') }}"><i class="la la-cog"></i> <span>Company Settings</span></a>
 								</li>
 								<li class="submenu">
 									<a href="#"><i class="la la-question"></i> <span> Help </span> <span class="menu-arrow"></span></a>
@@ -213,10 +213,19 @@
 					</div>
 				</div>
 
-			<!-- /Page Wrapper -->
+            	<!-- Page Wrapper -->
+                <div class="page-wrapper">
+
+                    <!-- Page Content -->
 
 
     	 @yield('content');
+
+        </div>
+        <!-- /Page Wrapper -->
+
+    </div>
+    <!-- /Main Wrapper -->
 
 	<!-- jQuery -->
 	<script src="/assets/js/jquery-3.5.1.min.js"></script>
