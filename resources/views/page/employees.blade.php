@@ -30,7 +30,7 @@
 					<div class="row filter-row">
 						<div class="col-sm-6 col-md-3">
 							<div class="form-group form-focus">
-								<input type="text" class="form-control floating">
+								<input type="text" class="form-control floating" >
 								<label class="focus-label">Service Provider ID</label>
 							</div>
 						</div>
@@ -117,31 +117,33 @@
 								</button>
 							</div>
 							<div class="modal-body">
-								<form>
+								<form action="{{route('serviceProvider.add')}}" method="post">
+                                    @csrf
+                                    @method('POST')
 									<div class="row">
 										<div class="col-sm-6">
 											<div class="form-group">
 												<label class="col-form-label">First Name </label>
-												<input class="form-control" type="text">
+												<input class="form-control" type="text" name="firstName">
 											</div>
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group">
 												<label class="col-form-label">Last Name</label>
-												<input class="form-control" type="text">
+												<input class="form-control" type="text" name="lastName">
 											</div>
 										</div>
 
 										<div class="col-sm-6">
 											<div class="form-group">
 												<label class="col-form-label">Email </label>
-												<input class="form-control" type="email">
+												<input class="form-control" type="email" name="email">
 											</div>
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group">
 												<label class="col-form-label">Password</label>
-												<input class="form-control" type="password">
+												<input class="form-control" type="password" name="password">
 											</div>
 										</div>
 										<div class="col-sm-6">
@@ -154,7 +156,7 @@
 										<div class="col-sm-6">
 											<div class="form-group">
 												<label class="col-form-label">Phone </label>
-												<input class="form-control" type="number">
+												<input class="form-control" type="number" name="phone">
 											</div>
 										</div>
 
@@ -163,29 +165,11 @@
 										<div class="col-md-6">
 											<div class="form-group">
 												<label>Categories </label>
-												<select class="select">
-													<option>Select categorie</option>
-													<option>Cleaning</option>
-													<option>Courses</option>
-													<option>Repair</option>
+												<select class="select" name="categoryID">
+                                                    @foreach ($categories as $category)
+                                                    <option value="{{ $category->categoryID }}">{{ $category->label }}</option>
+                                                    @endforeach
 												</select>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>Services </label>
-												<select class="select">
-													<option>Select service</option>
-													<option>Teacher Arabic</option>
-													<option>Teacher English</option>
-													<option>Home Cleanning</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="form-group">
-												<label class="col-form-label">Joining Date </label>
-												<div class="cal-icon"><input class="form-control datetimepicker" type="text"></div>
 											</div>
 										</div>
 									</div>

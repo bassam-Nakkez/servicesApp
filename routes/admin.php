@@ -77,6 +77,7 @@ Route::prefix('report')->group(function () {
 Route::prefix('serviceProvider')->group(function () {
     Route::get('index', [ServiceProviderController::class , "index"] )->name('serviceProvider.index');
     Route::get('shpw/{id}', [ServiceProviderController::class , "show"] )->name('serviceProvider.show');
+    Route::post('add', [ServiceProviderController::class , "add"] )->name('serviceProvider.add');
 
 });
 

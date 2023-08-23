@@ -17,7 +17,7 @@ $(document).ready(function() {
             items: numItems,
             itemsOnPage: perPage,
             cssStyle: "light-theme",
-            onPageClick: function(pageNumber) { 
+            onPageClick: function(pageNumber) {
                 var showFrom = perPage * (pageNumber - 1);
                 var showTo = showFrom + perPage;
                 $(this).find('.card').hide().slice(showFrom, showTo).show();
@@ -48,13 +48,14 @@ categoryListItem.addEventListener('click', () => {
 });
 });
 
-//click one row 
+//click one row
 
 // إضافة وظيفة النقر على الصفوف
 window.onload = function() {
 	var rows = document.querySelectorAll(".report tbody tr");
 	rows.forEach(function(row) {
 		row.addEventListener("click", function() {
+            $.ajax
 			// استبدل هذا بالرابط المطلوب
 			window.location.href = "report-view.html";
 		});
@@ -63,19 +64,19 @@ window.onload = function() {
 // end click
 
 $(document).ready(function() {
-	
+
 	// Variables declarations
-	
+
 	var $wrapper = $('.main-wrapper');
 	var $pageWrapper = $('.page-wrapper');
 	var $slimScrolls = $('.slimscroll');
-	
+
 	// Sidebar
-	
+
 	var Sidemenu = function() {
 		this.$menuItem = $('#sidebar-menu a');
 	};
-	
+
 	function init() {
 		var $this = Sidemenu;
 		$('#sidebar-menu a').on('click', function(e) {
@@ -94,12 +95,12 @@ $(document).ready(function() {
 		});
 		$('#sidebar-menu ul li.submenu a.active').parents('li:last').children('a:first').addClass('active').trigger('click');
 	}
-	
+
 	// Sidebar Initiate
 	init();
-	
+
 	// Mobile menu sidebar overlay
-	
+
 	$('body').append('<div class="sidebar-overlay"></div>');
 	$(document).on('click', '#mobile_btn', function() {
 		$wrapper.toggleClass('slide-nav');
@@ -108,7 +109,7 @@ $(document).ready(function() {
 		$('#task_window').removeClass('opened');
 		return false;
 	});
-	
+
 	$(".sidebar-overlay").on("click", function () {
 			$('html').removeClass('menu-opened');
 			$(this).removeClass('opened');
@@ -116,18 +117,18 @@ $(document).ready(function() {
 			$('.sidebar-overlay').removeClass('opened');
 			$('#task_window').removeClass('opened');
 	});
-	
-	
-	
+
+
+
 	// Select 2
-	
+
 	if($('.select').length > 0) {
 		$('.select').select2({
 			minimumResultsForSearch: -1,
 			width: '100%'
 		});
 	}
-	
+
 	// Modal Popup hide show
 
 	if($('.modal').length > 0 ){
@@ -144,7 +145,7 @@ $(document).ready(function() {
 		  }
 		});
 	}
-	
+
 	// Floating Label
 
 	if($('.floating').length > 0 ){
@@ -152,7 +153,7 @@ $(document).ready(function() {
 		$(this).parents('.form-focus').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
 		}).trigger('blur');
 	}
-	
+
 	// Sidebar Slimscroll
 
 	if($slimScrolls.length > 0) {
@@ -174,7 +175,7 @@ $(document).ready(function() {
 			$('.sidebar .slimScrollDiv').height(rHeight);
 		});
 	}
-	
+
 	// Page Content Height
 
 	var pHeight = $(window).height();
@@ -183,9 +184,9 @@ $(document).ready(function() {
 		var prHeight = $(window).height();
 		$pageWrapper.css('min-height', prHeight);
 	});
-	
+
 	// Date Time Picker
-	
+
 	if($('.datetimepicker').length > 0) {
 		$('.datetimepicker').datetimepicker({
 			format: 'DD/MM/YYYY',
@@ -197,7 +198,7 @@ $(document).ready(function() {
 			}
 		});
 	}
-	
+
 	// Datatable
 
 	if($('.datatable').length > 0) {
@@ -205,16 +206,16 @@ $(document).ready(function() {
 			"bFilter": false,
 		});
 	}
-	
+
 	// Tooltip
 
 	if($('[data-toggle="tooltip"]').length > 0) {
 		$('[data-toggle="tooltip"]').tooltip();
 	}
-	
+
 
 	// Check all email
-	
+
 	$(document).on('click', '#check_all', function() {
 		$('.checkmail').click();
 		return false;
@@ -230,15 +231,15 @@ $(document).ready(function() {
 			});
 		});
 	}
-	
+
 	// Mail important
-	
+
 	$(document).on('click', '.mail-important', function() {
 		$(this).find('i.fa').toggleClass('fa-star').toggleClass('fa-star-o');
 	});
-	
+
 	// Summernote
-	
+
 	if($('.summernote').length > 0) {
 		$('.summernote').summernote({
 			height: 200,                 // set editor height
@@ -247,9 +248,9 @@ $(document).ready(function() {
 			focus: false                 // set focus to editable area after initializing summernote
 		});
 	}
-	
-	
-	
+
+
+
 	// Multiselect
 
 	if($('#customleave_select').length > 0) {
@@ -260,7 +261,7 @@ $(document).ready(function() {
 	}
 
 	// Leave Settings button show
-	
+
 	$(document).on('click', '.leave-edit-btn', function() {
 		$(this).removeClass('leave-edit-btn').addClass('btn btn-white leave-cancel-btn').text('Cancel');
 		$(this).closest("div.leave-right").append('<button class="btn btn-primary leave-save-btn" type="submit">Save</button>');
@@ -273,7 +274,7 @@ $(document).ready(function() {
 		$(this).parent().parent().find("input").prop('disabled', true);
 		return false;
 	});
-	
+
 	$(document).on('change', '.leave-box .onoffswitch-checkbox', function() {
 		var id = $(this).attr('id').split('_')[1];
 		if ($(this).prop("checked") == true) {
@@ -281,14 +282,14 @@ $(document).ready(function() {
 			$("#leave_"+id+" .leave-action .btn").prop('disabled', false);
 		}
 	    else {
-			$("#leave_"+id+" .leave-action .btn").prop('disabled', true);	
+			$("#leave_"+id+" .leave-action .btn").prop('disabled', true);
 			$("#leave_"+id+" .leave-cancel-btn").parent().parent().find("input").prop('disabled', true);
 			$("#leave_"+id+" .leave-cancel-btn").closest("div.leave-right").find(".leave-save-btn").remove();
 			$("#leave_"+id+" .leave-cancel-btn").removeClass('btn btn-white leave-cancel-btn').addClass('leave-edit-btn').text('Edit');
 			$("#leave_"+id+" .leave-edit-btn").prop('disabled', true);
 		}
 	});
-	
+
 	$('.leave-box .onoffswitch-checkbox').each(function() {
 		var id = $(this).attr('id').split('_')[1];
 		if ($(this).prop("checked") == true) {
@@ -296,14 +297,14 @@ $(document).ready(function() {
 			$("#leave_"+id+" .leave-action .btn").prop('disabled', false);
 		}
 	    else {
-			$("#leave_"+id+" .leave-action .btn").prop('disabled', true);	
+			$("#leave_"+id+" .leave-action .btn").prop('disabled', true);
 			$("#leave_"+id+" .leave-cancel-btn").parent().parent().find("input").prop('disabled', true);
 			$("#leave_"+id+" .leave-cancel-btn").closest("div.leave-right").find(".leave-save-btn").remove();
 			$("#leave_"+id+" .leave-cancel-btn").removeClass('btn btn-white leave-cancel-btn').addClass('leave-edit-btn').text('Edit');
 			$("#leave_"+id+" .leave-edit-btn").prop('disabled', true);
 		}
 	});
-	
+
 	// Placeholder Hide
 
 	if ($('.otp-input, .zipcode-input input, .noborder-input input').length > 0) {
@@ -314,9 +315,9 @@ $(document).ready(function() {
 			$(this).attr('placeholder', $(this).data('placeholder'));
 		});
 	}
-	
 
-	
+
+
 	// Small Sidebar
 
 	$(document).on('click', '#toggle_btn', function() {
@@ -343,19 +344,19 @@ $(document).ready(function() {
 			return false;
 		}
 	});
-	
+
 	$(document).on('click', '.top-nav-search .responsive-search', function() {
 		$('.top-nav-search').toggleClass('active');
 	});
-	
+
 	$(document).on('click', '#file_sidebar_toggle', function() {
 		$('.file-wrap').toggleClass('file-sidebar-toggle');
 	});
-	
+
 	$(document).on('click', '.file-side-close', function() {
 		$('.file-wrap').removeClass('file-sidebar-toggle');
 	});
-	
+
 	if($('.kanban-wrap').length > 0) {
 		$(".kanban-wrap").sortable({
 			connectWith: ".kanban-wrap",

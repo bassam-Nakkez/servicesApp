@@ -52,7 +52,8 @@ class User extends Authenticatable
         "entity",
         "reset",
         "API-KEY",
-        'created_at'
+        'created_at',
+        'categoryID'
     ];
 
 
