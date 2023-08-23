@@ -58,7 +58,7 @@ class UserController extends Controller
                 $user[0]['reset']=$request->reset;
                 $user[0]['type']="1";
                 $user[0]['API-KEY']=$request->token;
-                $user[0]['token']=$user[0]->createToken($request->token)->accessToken;
+                $user[0]['token']=$user[0]->createToken('hazem')->accessToken;
                 $user[0]['subscriptionType']=1;
                 $user[0]['urssafMember']=false;
                 $user[0]['clientId']="";

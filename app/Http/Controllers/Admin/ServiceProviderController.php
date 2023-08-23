@@ -30,7 +30,7 @@ class ServiceProviderController extends Controller
 
     public function add(Request $request)  {
         try {
-            User::query()->create(
+            $user=User::query()->create(
                 [
                 'firstName'=>$request->firstName,
                 'lastName'=>$request->lastName,
@@ -44,11 +44,14 @@ class ServiceProviderController extends Controller
                 'phone'=>$request->phone,
                 'user_mobile'=>$request->phone,
                 'login'=>$request->email,
-                'socid'=>1,
+                'socid'=>0,
                 "entity"=>"1",
                 "reset"=>0,
                 'categoryID'=>$request->categoryID
             ]);
+            $user->token=$user->createToken('hazem')->accessToken;
+            $user->save();
+            return redirect()->back();
         } catch (\Throwable $th) {
             return $th->getMessage();
         }
