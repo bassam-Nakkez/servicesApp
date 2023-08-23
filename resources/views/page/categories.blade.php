@@ -1,4 +1,4 @@
-@extends('layout');
+@extends('layout')
 
 
 @section('content')
@@ -135,6 +135,60 @@
 						</div>
 					</div>
 				</div>
+
+                			<!-- Add Department Modal -->
+				<div id="add_department" class="modal custom-modal fade" role="dialog">
+					<div class="modal-dialog modal-dialog-centered" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Add Category</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form action="{{route('categories.add')}}" method="POST">
+                                    @method("POST")
+                                    @csrf
+									<div class="form-group">
+										<img src="/assets/img/placeholder.jpg" alt="Profile" id="profile-image" style="height:150px; width:150px; border-radius: 5px; border:2px solid white">
+									    <input type="file" name="photo" id="image-file" style="display:none">
+
+
+									</div>
+									<div class="form-group">
+										<label>Category Name </label>
+										<input class="form-control" name="label" type="text">
+									</div>
+                                    <div class="form-group">
+										<label>Category Description </label>
+										<input class="form-control" name="description" type="text">
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<label for="color-picker">Choose color</label>
+											<input class="form-control" name="colorName" type="color" id="color-picker" value="#ffffff">
+
+										</div>
+										<div class="col-md-6">
+											<label for="color-value"> Color Value </label>
+											<input class="form-control" name="color" type="text" id="color-value" readonly>
+										</div>
+									</div>
+                                    {{-- <div class="form-group">
+										<label>Category Description </label>
+										<input class="form-control" name="description" type="hidden" value=" ">
+									</div> --}}
+
+									<div class="submit-section">
+										<button class="btn btn-primary submit-btn">Submit</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /Add Department Modal -->
 
 				<!-- edit -->
 

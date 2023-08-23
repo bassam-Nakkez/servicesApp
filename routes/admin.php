@@ -34,6 +34,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('categories')->group(function () {
 
     Route::get('index',[CategoriesController::class ,'index'])->name('categories.index');
+    Route::post('add',[CategoriesController::class ,'add'])->name('categories.add');
     Route::post('edit',[CategoriesController::class ,'edit'])->name('categories.edit');
     Route::get('delete',[CategoriesController::class , 'destroy'])->name('categories.delete');
 
@@ -107,9 +108,12 @@ Route::prefix('companyInfo')->group(function () {
 
     Route::get('view',[CompanyController::class ,'view'])->name('companyInfo.view');
     Route::get('update',[CompanyController::class , 'update'])->name('companyInfo.update');
+
 });
 
 
+Route::get('terms',function(){ return view('page.terms'); })->name('terms');
+Route::get('policy',function(){ return view('page.privacy-policy'); })->name('policy');
 
 Route::get('employment',[EmployeeController::class , 'employment'])->name('employment');
 Route::get('dashboard',[DashboardController::class , 'view'])->name('dashboard.view');

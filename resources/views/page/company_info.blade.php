@@ -11,18 +11,19 @@
 							<div class="page-header">
 								<div class="row">
 									<div class="col-sm-12">
-										<h3 class="page-title">Company Settings</h3>
+										<h3 class="page-title">company Settings</h3>
 									</div>
 								</div>
 							</div>
 							<!-- /Page Header -->
 
-							<form>
+							{{-- <form action="{{route('companyInfo.update')}}" method="GET"> --}}
+                                <form>
 								<div class="row">
 									<div class="col-sm-6">
 										<div class="form-group">
-											<label>Company Name </label>
-											<input class="form-control" type="text" value="Facilitation">
+											<label> Name </label>
+											<input class="form-control" name="firstName" type="text" value="{{ $company[0]->firstName}}">
 										</div>
 									</div>
 
@@ -31,31 +32,31 @@
 									<div class="col-sm-12">
 										<div class="form-group">
 											<label>Address</label>
-											<input class="form-control " value="SYR.Damascus.Malky.Al-Khatib" type="text">
+											<input class="form-control " name="address"  type="text" value="{{$company[0]->address}}">
 										</div>
 									</div>
 									<div class="col-sm-6 col-md-6 col-lg-3">
 										<div class="form-group">
 											<label>Country</label>
-											<input class="form-control" value="SYR" type="text">
+											<input class="form-control"  name="country" type="text" value="{{$company[0]->country}}">
 										</div>
 									</div>
 									<div class="col-sm-6 col-md-6 col-lg-3">
 										<div class="form-group">
 											<label>City</label>
-											<input class="form-control" value="Damascus" type="text">
+											<input class="form-control"  type="text" value="{{$company[0]->city}}">
 										</div>
 									</div>
 									<div class="col-sm-6 col-md-6 col-lg-3">
 										<div class="form-group">
 											<label>Regions</label>
-											<input class="form-control" value="Malky" type="text">
+											<input class="form-control" value="{{$company[0]->regioms}}" type="text">
 										</div>
 									</div>
 									<div class="col-sm-6 col-md-6 col-lg-3">
 										<div class="form-group">
 											<label>Street</label>
-											<input class="form-control" value="Al-Khatib" type="text">
+											<input class="form-control" value="{{$company[0]->street}}" type="text">
 										</div>
 									</div>
 								</div>
@@ -63,13 +64,13 @@
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label>Email</label>
-											<input class="form-control" value="Facilitation@Company.com" type="email">
+											<input class="form-control" value="{{$company[0]->email}}" type="email">
 										</div>
 									</div>
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label>Phone Number</label>
-											<input class="form-control" value="0115133146" type="number">
+											<input class="form-control" value="{{$company[0]->phone}}" type="number">
 										</div>
 									</div>
 								</div>
@@ -77,13 +78,13 @@
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label>Start of Work</label>
-											<input class="form-control" value="9 AM" type="time">
+											<input class="form-control" value="{{$company[0]->startWork}}" type="time">
 										</div>
 									</div>
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label>End of Work</label>
-											<input class="form-control" value="5 PM" type="time">
+											<input class="form-control" value="{{$company[0]->endWork}}" type="time">
 										</div>
 									</div>
 								</div>
@@ -91,12 +92,12 @@
 									<div class="col-sm-12">
 										<div class="form-group">
 											<label>Descrption</label>
-											<textarea rows="6" class="form-control"  >You are welcome to our company. We aim to create a pleasant and strong work environment between the service provider and the clients. We have many services and suppliers that are able to meet the demands of our customers </textarea>
+											<textarea rows="6" class="form-control"  >{{$company[0]->descrpition}} </textarea>
 										</div>
 									</div>
 								</div>
 								<div class="submit-section">
-									<button class="btn btn-primary submit-btn">Save</button>
+									<button type="submit" class="btn btn-primary submit-btn">Save</button>
 								</div>
 							</form>
 						</div>

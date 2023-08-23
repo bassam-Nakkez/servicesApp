@@ -18,17 +18,15 @@ class Company extends Model
         'email',
         'password' ,
         'phone',
-        'login',
-        'default_rib',
-        'frstrecur',
-        'label',
-        'code_banque',
-        'code_guichet',
-        'account_number',
-        'cle_rib',
-        'bank' ,
-        'bic',
-        'iban',
+        'country',
+        'city',
+        'regioms',
+        'street',
+        'address',
+        'startWork',
+        'endWork',
+        'descrpition',
+     
 
     ];
 

@@ -12,23 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('companies', function (Blueprint $table) {
-            $table->id('companyID');
+            $table->id();
             $table->string('firstName', 25);
             $table->string('lastName',25);
             $table->string('email', 60 )->unique();
-            $table->string('password');
-            $table->integer('phone')->nullable()->main(7)->max(10);
-            $table->string('login')->nullable();
-            $table->string('default_rib')->nullable();
-            $table->string('frstrecur')->nullable();
-            $table->string('label')->nullable();
-            $table->string('code_banque')->nullable();
-            $table->string('code_guichet')->nullable();
-            $table->integer('account_number')->nullable();
-            $table->string('cle_rib')->nullable();
-            $table->string('bank')->nullable();
-            $table->string('bic')->nullable();
-            $table->string('iban')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('country')->nullable();
+            $table->string('city')->nullable();
+            $table->string('regioms')->nullable();
+            $table->string('street')->nullable();
+            $table->string('address')->nullable();
+            $table->date('startWork')->nullable();
+            $table->date('endWork')->nullable();
+            $table->string('descrpition')->nullable();
             $table->timestamps();
         });
     }

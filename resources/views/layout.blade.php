@@ -203,8 +203,8 @@
 									<ul style="display: none;">
 
 										<li><a href={{route('getAllFaqs')}}> FAQ </a></li>
-										<li><a href="terms.html"> Terms </a></li>
-										<li><a href="privacy-policy.html"> Privacy Policy </a></li>
+										<li><a href={{route('terms')}}> Terms </a></li>
+										<li><a href={{route('policy')}}> Privacy Policy </a></li>
 
 									</ul>
 								</li>
@@ -253,6 +253,12 @@
 	<!-- Custom JS -->
 	<script src="/assets/js/app.js"></script>
 
+		<!-- Chart JS -->
+		<script src="/assets/js/Chart.min.js"></script>
+		<script src="/assets/js/line-chart.js"></script>
+		<script src="/assets/plugins/morris/morris.min.js"></script>
+		<script src="/assets/plugins/raphael/raphael.min.js"></script>
+		<script src="/assets/js/chart.js"></script>
 
 
 

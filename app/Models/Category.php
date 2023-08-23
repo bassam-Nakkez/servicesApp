@@ -15,10 +15,10 @@ class Category extends Model
     protected $primaryKey ='categoryID';
     protected $fillable =
      [
-        'lable' ,
+        'label' ,
         'color',
         'description',
-        'photo',
+        // 'photo',
     ];
 
     /**

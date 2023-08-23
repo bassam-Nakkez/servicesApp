@@ -10,9 +10,27 @@ use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
 
 class CategoriesController extends Controller
 {
+
+    public function add ( Request $request )
+    {
+
+        try
+        {
+                        Category::create($request->all());
+            return redirect()->back();
+        }
+        catch(\Throwable $e)
+        {
+            return $e->getMessage();
+        }
+
+    }
+
     /**
      * Display a listing of the resource.
      */
+
+
     public function index()
     {
         $categories = Category::all();
