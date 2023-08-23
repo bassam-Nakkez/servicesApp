@@ -3,12 +3,11 @@
 
 @section('content')
 
-			<!-- Page Wrapper -->
-            <div class="page-wrapper">
-			
+
+
 				<!-- Page Content -->
                 <div class="content container-fluid">
-				
+
 					<!-- Page Header -->
 					<div class="page-header">
 						<div class="row align-items-center">
@@ -25,24 +24,24 @@
 						</div>
 					</div>
 					<!-- /Page Header -->
-					
+
 					<!-- Search Filter -->
 					<div class="row filter-row">
-						<div class="col-sm-6 col-md-3">  
+						<div class="col-sm-6 col-md-3">
 							<div class="form-group form-focus">
 								<input type="text" class="form-control floating">
 								<label class="focus-label">Service Provider ID</label>
 							</div>
 						</div>
-						<div class="col-sm-6 col-md-3">  
+						<div class="col-sm-6 col-md-3">
 							<div class="form-group form-focus">
 								<input type="text" class="form-control floating">
 								<label class="focus-label">Service Provider Name</label>
 							</div>
 						</div>
-						<div class="col-sm-6 col-md-3"> 
+						<div class="col-sm-6 col-md-3">
 							<div class="form-group form-focus select-focus">
-								<select class="select floating"> 
+								<select class="select floating">
 									<option>Select Service</option>
 									<option>home Cleaning </option>
 									<option>Car Cleaning </option>
@@ -52,12 +51,12 @@
 								<label class="focus-label">Services</label>
 							</div>
 						</div>
-						<div class="col-sm-6 col-md-3">  
-							<a href="#" class="btn btn-success btn-block"> Search </a>  
+						<div class="col-sm-6 col-md-3">
+							<a href="#" class="btn btn-success btn-block"> Search </a>
 						</div>
                     </div>
 					<!-- /Search Filter -->
-					
+
 					<div class="row">
 						<div class="col-md-12">
 							<div class="table-responsive">
@@ -105,7 +104,7 @@
 					</div>
                 </div>
 				<!-- /Page Content -->
-				
+
 				<!-- Add Salary Modal -->
 				<div id="add_salary" class="modal custom-modal fade" role="dialog">
 					<div class="modal-dialog modal-dialog-centered modal-md">
@@ -120,48 +119,48 @@
 								<form action="{{route('addSalary')}}" method="POST">
 									@csrf
 									@method('POST')
-									<div class="row"> 
-										<div class="col-sm-6"> 
+									<div class="row">
+										<div class="col-sm-6">
 											<div class="form-group">
 												<label>Service Provider</label>
 											<input class="form-control" type="text" name="userID">
 											</div>
 										</div>
-										<div class="col-sm-6"> 
+										<div class="col-sm-6">
 											<label>Basic Salary</label>
 											<input class="form-control" type="number" name="radioOfSalary">
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-sm-12">
-											<h4 class="text-primary">Earnings</h4> 
+											<h4 class="text-primary">Earnings</h4>
 										</div>
-										<div class="col-sm-6"> 
-											
+										<div class="col-sm-6">
+
 											<div class="form-group">
 												<label>living allowance</label>
 												<input class="form-control" type="number" name="livingAllowance">
 											</div>
 										</div>
-										<div class="col-sm-6"> 
+										<div class="col-sm-6">
 											<div class="form-group">
 												<label>Conveyance</label>
 												<input class="form-control" type="number" name="Conveyance">
 											</div>
 										</div>
-										<div class="col-sm-6"> 
+										<div class="col-sm-6">
 											<div class="form-group">
 												<label>HRA</label>
 												<input class="form-control" type="number" name="HRA">
 											</div>
 										</div>
-										<div class="col-sm-6"> 
+										<div class="col-sm-6">
 											<div class="form-group">
 												<label>Medical  Allowance</label>
 												<input class="form-control" type="number" name="medicalAllowance">
 											</div>
 										</div>
-										
+
 									</div>
 									<div class="submit-section">
 										<button class="btn btn-primary submit-btn">Submit</button>
@@ -172,7 +171,7 @@
 					</div>
 				</div>
 				<!-- /Add Salary Modal -->
-				
+
 				<!-- Edit Salary Modal -->
 				<div id="edit_salary" class="modal custom-modal fade" role="dialog">
 					<div class="modal-dialog modal-dialog-centered modal-md" role="document">
@@ -185,48 +184,48 @@
 							</div>
 							<div class="modal-body">
 								<form>
-									<div class="row"> 
-										<div class="col-sm-6"> 
+									<div class="row">
+										<div class="col-sm-6">
 											<div class="form-group">
 												<label>Service Provider</label>
 											<input class="form-control" type="text" value="Ali Salah">
 											</div>
 										</div>
-										<div class="col-sm-6"> 
+										<div class="col-sm-6">
 											<label>Basic Salary</label>
 											<input class="form-control" type="number" value="20">
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-sm-12">
-											<h4 class="text-primary">Earnings</h4> 
+											<h4 class="text-primary">Earnings</h4>
 										</div>
-										<div class="col-sm-6"> 
-											
+										<div class="col-sm-6">
+
 											<div class="form-group">
 												<label>living allowance</label>
 												<input class="form-control" type="number"value ="10">
 											</div>
 										</div>
-										<div class="col-sm-6"> 
+										<div class="col-sm-6">
 											<div class="form-group">
 												<label>Conveyance</label>
 												<input class="form-control" type="number"value="5">
 											</div>
 										</div>
-										<div class="col-sm-6"> 
+										<div class="col-sm-6">
 											<div class="form-group">
 												<label>HRA</label>
 												<input class="form-control" type="number" value="10">
 											</div>
 										</div>
-										<div class="col-sm-6"> 
+										<div class="col-sm-6">
 											<div class="form-group">
 												<label>Medical  Allowance</label>
 												<input class="form-control" type="number" value="15">
 											</div>
 										</div>
-										
+
 									</div>
 									<div class="submit-section">
 										<button class="btn btn-primary submit-btn">Save</button>
@@ -237,7 +236,7 @@
 					</div>
 				</div>
 				<!-- /Edit Salary Modal -->
-				
+
 				<!-- Delete Salary Modal -->
 				<div class="modal custom-modal fade" id="delete_salary" role="dialog">
 					<div class="modal-dialog modal-dialog-centered">
@@ -262,10 +261,6 @@
 					</div>
 				</div>
 				<!-- /Delete Salary Modal -->
-				
-            </div>
-			<!-- /Page Wrapper -->
 
-        </div>
-		<!-- /Main Wrapper -->
-@endsection	
+    
+@endsection

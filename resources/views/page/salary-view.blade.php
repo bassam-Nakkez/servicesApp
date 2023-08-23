@@ -1,13 +1,12 @@
 @extends('layout')
 
-			
+
 @section('content')
-			<!-- Page Wrapper -->
-            <div class="page-wrapper">
-			
+
+
 				<!-- Page Content -->
                 <div class="content container-fluid">
-				
+
 					<!-- Page Header -->
 					<div class="page-header">
 						<div class="row align-items-center">
@@ -20,15 +19,15 @@
 							</div>
 							<div class="col-auto float-right ml-auto">
 								<div class="btn-group btn-group-sm">
-								
+
 									<button class="btn btn-white" onclick="printPage()"><i class="fa fa-print fa-lg"></i> Print</button>
-									
+
 								</div>
 							</div>
 						</div>
 					</div>
 					<!-- /Page Header -->
-					
+
 					<div class="row">
 						<div class="col-md-12">
 							<div class="card">
@@ -37,7 +36,7 @@
 									<div class="row">
 										<div class="col-sm-6 m-b-20">
 											<img src="assets/img/logo.png" class="inv-logo" width="80" height="80" alt="">
-										
+
 										</div>
 										<div class="col-sm-6 m-b-20">
 											<div class="invoice-details">
@@ -78,7 +77,7 @@
 														<tr>
 															<td><strong>living allowance</strong> <span class="float-right">{{$easer[0]->salary->MedicalAllowance}}$</span></td>
 														</tr>
-														
+
 														<tr style="background-color: #b5ff98">
 															<td><strong>Total Earnings</strong> <span class="float-right"><strong>
 															{{(int)$easer[0]->salary->livingAllowance+(int)$easer[0]->salary->Conveyance+(int)$easer[0]->salary->HRA+(int)$easer[0]->salary->MedicalAllowance+(int)$salary}}$</strong></span></td>
@@ -98,12 +97,12 @@
 														<tr>
 															<td><strong>Ratio of Task </strong> <span class="float-right">{{$easer[0]->salary->radioOfSalary}}%</span></td>
 														</tr>
-													
+
 													</tbody>
 												</table>
 											</div>
 										</div>
-										
+
 									</div>
 								</div>
 								<script>
@@ -120,10 +119,6 @@
 					</div>
                 </div>
 				<!-- /Page Content -->
-				
-            </div>
-			<!-- /Page Wrapper -->
 
-        </div>
 
 @endsection

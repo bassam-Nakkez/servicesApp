@@ -1,6 +1,6 @@
 
 @extends('layout')
-@section('content');
+@section('content')
 <div class="">
 
 <form  method="POST">

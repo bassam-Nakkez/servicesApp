@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('help_forms', function (Blueprint $table) {
             $table->id();
-            $table->string('fkSoc');
+            $table->unsignedBigInteger('fkSoc');
+            $table->foreign('fkSoc')->references('userID')->on('users');
             $table->string('subject')->nullable();
             $table->string('message')->nullable();
             $table->string('typeCode')->nullable();

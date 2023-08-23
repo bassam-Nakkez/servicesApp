@@ -1,7 +1,5 @@
 @extends('layout')
-
 @section('content')
-    <div class="page-wrapper">
 				<!-- Page Content -->
                 <div class="content container-fluid">
 
@@ -301,6 +299,5 @@
 					</div>
 				</div>
 				<!-- /Delete Employee Modal -->
-    </div>
 
 @endsection

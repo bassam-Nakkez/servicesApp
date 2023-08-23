@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout');
 
 
 @section('content')
@@ -35,7 +35,6 @@
 				}
 
 			</script>
-		  <div class="page-wrapper">
 
 				<!-- Page Content -->
                 <div class="content container-fluid">
@@ -181,7 +180,6 @@
 
 
 
-            </div>
 @endsection
 
 

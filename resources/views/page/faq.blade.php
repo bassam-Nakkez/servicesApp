@@ -1,9 +1,9 @@
 
-@extends('layout');
+@extends('layout')
 
-@section('content');
+@section('content')
 
-     <div class="page-wrapper">
+
 				<!-- Page Content -->
                 <div class="content container-fluid">
 
@@ -95,8 +95,6 @@
 						</div>
 					</div>
 				</div>
-     </div>
-			<!-- /Page Wrapper -->
 
 
 @endsection

@@ -20,5 +20,14 @@ class HelpForm extends Model
         'severityCode',
     ];
 
+    /**
+     * Get the user associated with the HelpForm
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function user()
+    {
+        return $this->hasOne(User::class, 'userID', 'userID');
+    }
 
 }

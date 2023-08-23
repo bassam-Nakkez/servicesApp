@@ -1,10 +1,10 @@
-@extends('layout');
+@extends('layout')
 
-@section('content');
+@section('content')
+
 
 				<!-- Page Content -->
                 <div class="content container-fluid">
-
 					<!-- Page Header -->
 					<div class="page-header">
 						<div class="page-header">

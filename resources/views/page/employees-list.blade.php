@@ -1,5 +1,7 @@
-@section('content');
-    <div class="page-wrapper">
+
+@extends('layout')
+@section('content')
+
 				<!-- Page Content -->
                 <div class="content container-fluid">
 
@@ -98,18 +100,6 @@
 												</div>
 
 
-											</td>
-
-											<td class="text-right">
-												<div class="dropdown dropdown-action">
-													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-													<div class="dropdown-menu dropdown-menu-right">
-														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_employee"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-													</div>
-												</div>
-											</td>
-										</tr>
 										<tr>
 											<td>
 												<h2 class="table-avatar">
@@ -133,6 +123,8 @@
 												</div>
 											</td>
 
+
+
 											<td class="text-right">
 												<div class="dropdown dropdown-action">
 													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
@@ -142,43 +134,7 @@
 													</div>
 												</div>
 											</td>
-										</tr>
-										<tr>
-											<td>
-												<h2 class="table-avatar">
-													<a href="profile.html" class="avatar"><img alt="" src="assets/img/profiles/profile3.jpeg"></a>
-													<a href="profile.html">John Smith <span>Moving furniture</span></a>
-												</h2>
-											</td>
-											<td>SP-0003</td>
-											<td>johnsmith@example.com</td>
-											<td>09876543210</td>
-											<td>1 Apr 2023</td>
-											<td>
-												<div class="col-md-10">
-													<div class="onoffswitch">
 
-
-														<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch_hra" data-toggle="modal" data-target="#Block-User">
-														<label class="onoffswitch-label" for="switch_hra">
-															<span class="onoffswitch-inner"></span>
-															<span class="onoffswitch-switch"></span>
-														</label>
-													</div>
-												</div>
-
-
-											</td>
-											<td class="text-right">
-												<div class="dropdown dropdown-action">
-													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-													<div class="dropdown-menu dropdown-menu-right">
-														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_employee"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-													</div>
-												</div>
-											</td>
-										</tr>
 
 									</tbody>
 								</table>
@@ -422,8 +378,6 @@
 							</div>
 						</div>
 					</div>
-
-    </div>
 
 				<!-- /Block  Modal -->
 
