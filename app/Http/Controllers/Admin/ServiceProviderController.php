@@ -13,14 +13,13 @@ class ServiceProviderController extends Controller
         try{
 
 
-            $sps = User::where('socid' , 0 )->latest()->limit(15);
+            $sps = User::query()->where('socid' , 0 )->with('category')->latest()->limit(15)->get();
 
             for ( $i = 0 ; $i < count($sps) ; $i++ )
             {
 
             $sps[$i]['fullName'] = $sps[$i]->firstName .' '. $sps[$i]->lastName;
             return view('page.employees' , compact('sps'))->with('success',true);
-            // return view('p' , compact('sp'))->with('success',true);
             }
 
         }

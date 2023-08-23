@@ -51,7 +51,8 @@ class User extends Authenticatable
         'fk_user',
         "entity",
         "reset",
-        "API-KEY"
+        "API-KEY",
+        'created_at'
     ];
 
 

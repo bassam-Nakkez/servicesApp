@@ -37,7 +37,7 @@
 						<div class="col-sm-6 col-md-3">
 							<div class="form-group form-focus">
 								<input type="text" class="form-control floating">
-								<label class="focus-label"> {{}}Service Provider Name</label>
+								<label class="focus-label">Service Provider Name</label>
 							</div>
 						</div>
 						<div class="col-sm-6 col-md-3">
@@ -93,7 +93,7 @@
 									</div>
 								</div>
 								<h4 class="user-name m-t-10 mb-0 text-ellipsis"><a href="profile.html"> {{$sp['fullName']}}samer sleman</a></h4>
-								<div class="small text-muted">Pipe repair</div>
+								<div class="small text-muted">{{ $sp->category->label }}</div>
 							</div>
 						</div>
 

@@ -62,55 +62,18 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>
-												<h2 class="table-avatar">
-													<a  class="avatar"><img alt="" src="assets/img/profiles/avatar-28.jpg"></a>
-													<a >Soso sy</a>
-												</h2>
-											</td>
-											<td>CU-0001</td>
-											<td>Sososy2134@gmail.com</td>
-											<td>9876543210</td>
-											<td>1 Jan 2023</td>
-											<td>
-												<div class="col-md-10">
-													<div class="onoffswitch">
-
-
-														<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch_hra" data-toggle="modal" data-target="#Block-User">
-														<label class="onoffswitch-label" for="switch_hra">
-															<span class="onoffswitch-inner"></span>
-															<span class="onoffswitch-switch"></span>
-														</label>
-													</div>
-												</div>
-
-
-
-
                                         @foreach ($users as $user)
-
-											<td class="text-right">
-												<div class="dropdown dropdown-action">
-													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-													<div class="dropdown-menu dropdown-menu-right">
-														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-													</div>
-												</div>
-											</td>
-										</tr>
 										<tr>
 											<td>
 												<h2 class="table-avatar">
 													<a class="avatar"><img alt="" src="assets/img/profiles/avatar-25.jpg"></a>
-													<a >Abd alkhader </a>
+													<a >{{ $user->firstName ." ". $user->lastName }} </a>
 												</h2>
 											</td>
-											<td>CU-0002</td>
-											<td>Abdalkhader232@gmail.com</td>
-											<td>009876543210</td>
-											<td>18 Mar 2023</td>
+											<td>{{ $user->userID }}</td>
+											<td>{{ $user->email }}</td>
+											<td>{{ $user->phone }}</td>
+											<td>{{ date_format($user->created_at,'Y-m-d') }}</td>
 											<td>
 												<div class="col-md-10">
 													<div class="onoffswitch">
@@ -132,43 +95,6 @@
 												</div>
 											</td>
 										</tr>
-										<tr>
-											<td>
-												<h2 class="table-avatar">
-													<a class="avatar"><img alt="" src="assets/img/profiles/avatar-29.jpg"></a>
-													<a >Saly sy </a>
-												</h2>
-											</td>
-											<td>CU-0003</td>
-											<td>Salysy231@gmail.com</td>
-											<td>09876543210</td>
-											<td>1 Apr 2023</td>
-											<td>
-												<div class="col-md-10">
-													<div class="onoffswitch">
-
-
-														<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch_hra" data-toggle="modal" data-target="#Block-User">
-														<label class="onoffswitch-label" for="switch_hra">
-															<span class="onoffswitch-inner"></span>
-															<span class="onoffswitch-switch"></span>
-														</label>
-													</div>
-												</div>
-
-
-											</td>
-
-											{{-- <td class="text-right">
-												<div class="dropdown dropdown-action">
-													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-													<div class="dropdown-menu dropdown-menu-right">
-														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-													</div>
-												</div>
-											</td>
-										</tr> --}}
-
                                         @endforeach
 
 									</tbody>

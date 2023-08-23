@@ -15,7 +15,8 @@ class UserController extends Controller
     {
         try
         {
-            $users = User::all();
+            
+            $users = User::query()->where('socid','>',0)->get();
             return view( 'page.clients-list', compact('users' ) )->with('success',true);
         }
 
